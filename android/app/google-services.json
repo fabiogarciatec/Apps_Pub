@@ -1,0 +1,142 @@
+{
+  "project_info": {
+    "project_number": "1027598069684",
+    "project_id": "app-raizespremium",
+    "storage_bucket": "app-raizespremium.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027598069684:android:b044f39b8a9bcec5a0cce1",
+        "android_client_info": {
+          "package_name": "com.app.raizes.premium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1027598069684-8mg79h8fesocderha2mhjm9v8bpr9vb1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.raizes.premium",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1027598069684-nc7ecqr2amdqne8das8ita9dl76h26a5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChH5DvsvyYJP4hmPcOE7F6gCoMiCRrAuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027598069684-fh3dmsnih1hsomum7ckqjrq0q09gimr8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1027598069684-04mdr2d6i7marb8lj11ve9i2ndct23dm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.raizes.premium"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027598069684:android:1e977721e81a23cfa0cce1",
+        "android_client_info": {
+          "package_name": "com.raizes.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1027598069684-3e46iov6aci9ij81aeb8audrlo4dasdn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raizes.app",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1027598069684-nc7ecqr2amdqne8das8ita9dl76h26a5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChH5DvsvyYJP4hmPcOE7F6gCoMiCRrAuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027598069684-fh3dmsnih1hsomum7ckqjrq0q09gimr8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1027598069684-04mdr2d6i7marb8lj11ve9i2ndct23dm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.raizes.premium"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027598069684:android:596355843bf5c3aea0cce1",
+        "android_client_info": {
+          "package_name": "com.raizes.premium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1027598069684-o6k7rlfbfjff47875pknapbuesk6bi97.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raizes.premium",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1027598069684-nc7ecqr2amdqne8das8ita9dl76h26a5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChH5DvsvyYJP4hmPcOE7F6gCoMiCRrAuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027598069684-fh3dmsnih1hsomum7ckqjrq0q09gimr8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1027598069684-04mdr2d6i7marb8lj11ve9i2ndct23dm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.raizes.premium"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1027598069684-9g9f1b6kqr4j7lsahts0lr9f60evl30u.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1027598069684-9g9f1b6kqr4j7lsahts0lr9f60evl30u</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1027598069684-3e46iov6aci9ij81aeb8audrlo4dasdn.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC1YBtOLOAHDqGkQmgzhqCAlLd3BRRulDI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1027598069684</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.raizes.premium</string>
+	<key>PROJECT_ID</key>
+	<string>app-raizespremium</string>
+	<key>STORAGE_BUCKET</key>
+	<string>app-raizespremium.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1027598069684:ios:99cb7753e713372da0cce1</string>
+</dict>
+</plist>

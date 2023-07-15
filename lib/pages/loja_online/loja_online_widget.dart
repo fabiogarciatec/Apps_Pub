@@ -83,7 +83,7 @@ class _LojaOnlineWidgetState extends State<LojaOnlineWidget> {
         elevation: 0.0,
       ),
       body: FlutterFlowWebView(
-        content: 'https://loja.raizesmaquinas.com.br/',
+        content: 'https://raizesmaquinas.fidelimax.com.br/',
         bypass: false,
         height: MediaQuery.sizeOf(context).height * 1.0,
         verticalScroll: true,

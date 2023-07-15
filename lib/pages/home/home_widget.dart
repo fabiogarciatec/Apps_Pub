@@ -2223,7 +2223,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 2.0),
                     child: Text(
-                      'RAÍZES PREMIUM',
+                      'RAÍZES PREMIUMm',
                       style: FlutterFlowTheme.of(context)
                           .headlineMedium
                           .override(

@@ -166,6 +166,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CriarPushNotification',
           path: '/criarPushNotification',
           builder: (context, params) => CriarPushNotificationWidget(),
+        ),
+        FFRoute(
+          name: 'LojaOnline',
+          path: '/lojaOnline',
+          builder: (context, params) => LojaOnlineWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

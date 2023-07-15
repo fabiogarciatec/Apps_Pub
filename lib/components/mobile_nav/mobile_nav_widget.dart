@@ -242,6 +242,58 @@ class _MobileNavWidgetState extends State<MobileNavWidget> {
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     context.pushNamed(
+                      'LojaOnline',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 1000),
+                        ),
+                      },
+                    );
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.shopping_cart_checkout,
+                        color: FlutterFlowTheme.of(context).primaryBtnText,
+                        size: 24.0,
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
+                        child: Text(
+                          'Loja Online',
+                          style: FlutterFlowTheme.of(context)
+                              .bodySmall
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodySmallFamily,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodySmallFamily),
+                              ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(
                       'Campanhas',
                       extra: <String, dynamic>{
                         kTransitionInfoKey: TransitionInfo(
@@ -265,7 +317,7 @@ class _MobileNavWidgetState extends State<MobileNavWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
                         child: Text(
-                          'Ofertas',
+                          'Promos',
                           style: FlutterFlowTheme.of(context)
                               .bodySmall
                               .override(

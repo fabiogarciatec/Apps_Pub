@@ -17,3 +17,4 @@ export '/pages/otp_code/otp_code_widget.dart' show OtpCodeWidget;
 export '/pages/campanhas/campanhas_widget.dart' show CampanhasWidget;
 export '/pages/criar_push_notification/criar_push_notification_widget.dart'
     show CriarPushNotificationWidget;
+export '/pages/loja_online/loja_online_widget.dart' show LojaOnlineWidget;

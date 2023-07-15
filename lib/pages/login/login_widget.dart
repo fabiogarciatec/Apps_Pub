@@ -57,7 +57,7 @@ class _LoginWidgetState extends State<LoginWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBtnText,
         body: Container(
           decoration: BoxDecoration(
-            color: Color(0xFFEB7D04),
+            color: Color(0xFFD26C03),
           ),
           child: Align(
             alignment: AlignmentDirectional(0.0, 1.0),
@@ -231,7 +231,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color: Color(0xFFF1F4F8),
+                                            color: Color(0xFFEB7D04),
                                             width: 2.0,
                                           ),
                                           borderRadius:
@@ -518,8 +518,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
-                                      disabledColor: Color(0xFFF7F7F7),
-                                      disabledTextColor: Color(0xFFE0E0E0),
+                                      disabledColor: Color(0x3F636363),
+                                      disabledTextColor: Colors.white,
                                     ),
                                   ),
                                 ],

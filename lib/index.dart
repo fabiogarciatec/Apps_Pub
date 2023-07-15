@@ -18,3 +18,4 @@ export '/pages/campanhas/campanhas_widget.dart' show CampanhasWidget;
 export '/pages/criar_push_notification/criar_push_notification_widget.dart'
     show CriarPushNotificationWidget;
 export '/pages/loja_online/loja_online_widget.dart' show LojaOnlineWidget;
+export '/pages/cadastro_rp/cadastro_rp_widget.dart' show CadastroRpWidget;

@@ -135,6 +135,7 @@ final parametersBuilderMap =
   'Campanhas': ParameterData.none(),
   'CriarPushNotification': ParameterData.none(),
   'LojaOnline': ParameterData.none(),
+  'CadastroRp': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

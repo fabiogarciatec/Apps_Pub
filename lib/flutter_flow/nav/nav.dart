@@ -171,6 +171,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'LojaOnline',
           path: '/lojaOnline',
           builder: (context, params) => LojaOnlineWidget(),
+        ),
+        FFRoute(
+          name: 'CadastroRp',
+          path: '/cadastroRp',
+          builder: (context, params) => CadastroRpWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

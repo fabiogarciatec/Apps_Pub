@@ -481,8 +481,25 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   );
                                                 },
                                               );
-                                              await launchURL(
-                                                  'https://raizesmaquinas.fidelimax.com.br/');
+
+                                              context.pushNamedAuth(
+                                                'CadastroRp',
+                                                context.mounted,
+                                                extra: <String, dynamic>{
+                                                  kTransitionInfoKey:
+                                                      TransitionInfo(
+                                                    hasTransition: true,
+                                                    transitionType:
+                                                        PageTransitionType
+                                                            .scale,
+                                                    alignment:
+                                                        Alignment.bottomCenter,
+                                                    duration: Duration(
+                                                        milliseconds: 1000),
+                                                  ),
+                                                },
+                                              );
+
                                               if (_shouldSetState)
                                                 setState(() {});
                                               return;

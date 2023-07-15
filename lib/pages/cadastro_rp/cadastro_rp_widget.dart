@@ -6,25 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'loja_online_model.dart';
-export 'loja_online_model.dart';
+import 'cadastro_rp_model.dart';
+export 'cadastro_rp_model.dart';
 
-class LojaOnlineWidget extends StatefulWidget {
-  const LojaOnlineWidget({Key? key}) : super(key: key);
+class CadastroRpWidget extends StatefulWidget {
+  const CadastroRpWidget({Key? key}) : super(key: key);
 
   @override
-  _LojaOnlineWidgetState createState() => _LojaOnlineWidgetState();
+  _CadastroRpWidgetState createState() => _CadastroRpWidgetState();
 }
 
-class _LojaOnlineWidgetState extends State<LojaOnlineWidget> {
-  late LojaOnlineModel _model;
+class _CadastroRpWidgetState extends State<CadastroRpWidget> {
+  late CadastroRpModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => LojaOnlineModel());
+    _model = createModel(context, () => CadastroRpModel());
   }
 
   @override
@@ -83,7 +83,7 @@ class _LojaOnlineWidgetState extends State<LojaOnlineWidget> {
         elevation: 0.0,
       ),
       body: FlutterFlowWebView(
-        content: 'https://loja.raizesmaquinas.com.br/',
+        content: 'https://raizesmaquinas.fidelimax.com.br/',
         bypass: false,
         height: MediaQuery.sizeOf(context).height * 1.0,
         verticalScroll: true,

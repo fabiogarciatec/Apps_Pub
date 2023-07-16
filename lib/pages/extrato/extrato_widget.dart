@@ -736,7 +736,10 @@ class _ExtratoWidgetState extends State<ExtratoWidget> {
                                                             .fromSTEB(0.0, 3.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      '0',
+                                                      getJsonField(
+                                                        FFAppState().jsonSaldo,
+                                                        r'''$.cashback''',
+                                                      ).toString(),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)

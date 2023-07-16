@@ -1685,9 +1685,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 'login', context.mounted);
 
                                             setState(() {
-                                              FFAppState().deleteJsonPontos();
-                                              FFAppState().jsonPontos = null;
-
                                               FFAppState().deleteJsonProdutos();
                                               FFAppState().JsonProdutos = null;
 
@@ -2585,10 +2582,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                   Padding(
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(3.0, 0.0, 0.0, 0.0),
                                                                                     child: Text(
-                                                                                      getJsonField(
-                                                                                        FFAppState().jsonSaldo,
-                                                                                        r'''$.saldo''',
-                                                                                      ).toString(),
+                                                                                      valueOrDefault<String>(
+                                                                                        getJsonField(
+                                                                                          FFAppState().jsonSaldo,
+                                                                                          r'''$.saldo''',
+                                                                                        ).toString(),
+                                                                                        '0',
+                                                                                      ),
                                                                                       style: FlutterFlowTheme.of(context).displaySmall.override(
                                                                                             fontFamily: 'Outfit',
                                                                                             color: Colors.white,
@@ -3745,10 +3745,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Text(
-                                                                                  getJsonField(
-                                                                                    pontosListItem,
-                                                                                    r'''$.nome''',
-                                                                                  ).toString(),
+                                                                                  valueOrDefault<String>(
+                                                                                    getJsonField(
+                                                                                      pontosListItem,
+                                                                                      r'''$.nome''',
+                                                                                    ).toString(),
+                                                                                    'nome',
+                                                                                  ),
                                                                                   textAlign: TextAlign.start,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
@@ -3758,10 +3761,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                       ),
                                                                                 ),
                                                                                 Text(
-                                                                                  'Cod: ${getJsonField(
-                                                                                    pontosListItem,
-                                                                                    r'''$.identificador''',
-                                                                                  ).toString()}',
+                                                                                  valueOrDefault<String>(
+                                                                                    'Cod: ${getJsonField(
+                                                                                      pontosListItem,
+                                                                                      r'''$.identificador''',
+                                                                                    ).toString()}',
+                                                                                    'Cod',
+                                                                                  ),
                                                                                   textAlign: TextAlign.start,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
@@ -3801,10 +3807,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                               Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                                                                                 child: Text(
-                                                                                  getJsonField(
-                                                                                    pontosListItem,
-                                                                                    r'''$.pontos''',
-                                                                                  ).toString(),
+                                                                                  valueOrDefault<String>(
+                                                                                    getJsonField(
+                                                                                      pontosListItem,
+                                                                                      r'''$.pontos''',
+                                                                                    ).toString(),
+                                                                                    '0',
+                                                                                  ),
                                                                                   textAlign: TextAlign.center,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,

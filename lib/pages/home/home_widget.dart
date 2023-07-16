@@ -2947,11 +2947,14 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                                   r'''$.data_ultima_compra''',
                                                                                                 ) !=
                                                                                                 null
-                                                                                            ? functions.dataBrasil(getJsonField(
-                                                                                                FFAppState().jsonClientes,
-                                                                                                r'''$.data_ultima_compra''',
-                                                                                              ).toString())
-                                                                                            : '00-00-0000',
+                                                                                            ? valueOrDefault<String>(
+                                                                                                functions.dataBrasil(getJsonField(
+                                                                                                  FFAppState().jsonClientes,
+                                                                                                  r'''$.data_ultima_compra''',
+                                                                                                ).toString()),
+                                                                                                '0000-00-00',
+                                                                                              )
+                                                                                            : '0000-00-00',
                                                                                         '00-00-0000',
                                                                                       ).maybeHandleOverflow(maxChars: 10),
                                                                                       textAlign: TextAlign.end,

@@ -298,10 +298,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 children: [
                                   FFButtonWidget(
                                     onPressed: _model
-                                                    .documentoController.text ==
-                                                null ||
-                                            _model.documentoController.text ==
-                                                ''
+                                                .documentoController.text ==
+                                            ''
                                         ? null
                                         : () async {
                                             var _shouldSetState = false;
@@ -342,7 +340,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                         ''),
                                                     r'''$.data_nascimento''',
                                                   ).toString(),
-                                                  '2023-06-11',
+                                                  '0000-00-00',
                                                 );
                                               });
                                               if (FFAppState().dataNascimento ==

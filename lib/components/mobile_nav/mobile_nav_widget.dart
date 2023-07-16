@@ -106,7 +106,7 @@ class _MobileNavWidgetState extends State<MobileNavWidget> {
                     );
 
                     _model.timerclients = InstantTimer.periodic(
-                      duration: Duration(milliseconds: 2000),
+                      duration: Duration(milliseconds: 60000),
                       callback: (timer) async {
                         _model.resultPontos = await RPConsultaPontosCall.call(
                           cpf: valueOrDefault<String>(

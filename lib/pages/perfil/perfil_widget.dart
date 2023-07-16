@@ -964,6 +964,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                         phoneNumber: _model.textCelularController.text,
                         dataNascimento: _model.dataNascController.text,
                         photoUrl: _model.uploadedFileUrl,
+                        displayName: _model.textController1.text,
                       ));
                       await showDialog(
                         context: context,

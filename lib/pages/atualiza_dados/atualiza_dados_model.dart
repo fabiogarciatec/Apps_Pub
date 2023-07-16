@@ -43,6 +43,8 @@ class AtualizaDadosModel extends FlutterFlowModel {
   bool? checkboxTermoValue;
   // Stores action output result for [Backend Call - API (Rp Atualizar Cliente)] action in Button widget.
   ApiCallResponse? resulAtualizaCliente;
+  // Stores action output result for [Backend Call - API (RP Consulta Clientes)] action in Button widget.
+  ApiCallResponse? resultApiClient;
 
   /// Initialization and disposal methods.
 

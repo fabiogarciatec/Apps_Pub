@@ -923,10 +923,7 @@ class _AtualizaDadosWidgetState extends State<AtualizaDadosWidget> {
                             final user =
                                 await authManager.createAccountWithEmail(
                               context,
-                              getJsonField(
-                                FFAppState().jsonClientes,
-                                r'''$.email''',
-                              ).toString(),
+                              _model.textEmailController.text,
                               FFAppState().passwordPadrao,
                             );
                             if (user == null) {
@@ -964,6 +961,20 @@ class _AtualizaDadosWidgetState extends State<AtualizaDadosWidget> {
                                   superAdmin: false,
                                 ));
 
+                            _model.resultApiClient =
+                                await RPConsultaClientesCall.call(
+                              cpf: FFAppState().docAuth,
+                            );
+                            setState(() {
+                              FFAppState().jsonClientes =
+                                  RPConsultaClientesCall.clientRetorno(
+                                (_model.resultApiClient?.jsonBody ?? ''),
+                              );
+                              FFAppState().dataNascimento = getJsonField(
+                                (_model.resultApiClient?.jsonBody ?? ''),
+                                r'''$.data_nascimento''',
+                              ).toString();
+                            });
                             await showDialog(
                               context: context,
                               builder: (alertDialogContext) {

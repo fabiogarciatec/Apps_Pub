@@ -68,7 +68,7 @@ class _CadastroRpWidgetState extends State<CadastroRpWidget> {
           },
         ),
         title: Text(
-          'Loja Online',
+          'Raízes Premium',
           style: FlutterFlowTheme.of(context).titleLarge.override(
                 fontFamily: 'Outfit',
                 color: FlutterFlowTheme.of(context).primaryBtnText,

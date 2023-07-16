@@ -11,6 +11,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/instant_timer.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:badges/badges.dart' as badges;
@@ -64,8 +65,32 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await Future.delayed(const Duration(milliseconds: 2000));
-      if (valueOrDefault<bool>(currentUserDocument?.aceiteTermo, false) !=
+      if (valueOrDefault<bool>(currentUserDocument?.aceiteTermo, false) ==
           true) {
+        _model.timerclients = InstantTimer.periodic(
+          duration: Duration(milliseconds: 60000),
+          callback: (timer) async {
+            _model.resultPontos = await RPConsultaPontosCall.call(
+              cpf: valueOrDefault<String>(
+                FFAppState().docAuth,
+                '0',
+              ),
+            );
+            setState(() {
+              FFAppState().jsonPontos = getJsonField(
+                (_model.resultPontos?.jsonBody ?? ''),
+                r'''$.produtos''',
+              );
+              FFAppState().jsonSaldo = getJsonField(
+                (_model.resultPontos?.jsonBody ?? ''),
+                r'''$''',
+              );
+            });
+            null?.cancel();
+          },
+          startImmediately: false,
+        );
+      } else {
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
@@ -2582,13 +2607,10 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                   Padding(
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(3.0, 0.0, 0.0, 0.0),
                                                                                     child: Text(
-                                                                                      valueOrDefault<String>(
-                                                                                        getJsonField(
-                                                                                          FFAppState().jsonSaldo,
-                                                                                          r'''$.saldo''',
-                                                                                        ).toString(),
-                                                                                        '0',
-                                                                                      ),
+                                                                                      getJsonField(
+                                                                                        FFAppState().jsonSaldo,
+                                                                                        r'''$.saldo''',
+                                                                                      ).toString(),
                                                                                       style: FlutterFlowTheme.of(context).displaySmall.override(
                                                                                             fontFamily: 'Outfit',
                                                                                             color: Colors.white,

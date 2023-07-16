@@ -88,19 +88,16 @@ class _CadastroUserWidgetState extends State<CadastroUserWidget> {
             context.safePop();
           },
         ),
-        title: Align(
-          alignment: AlignmentDirectional(0.0, 0.0),
-          child: Text(
-            'Atualizar Dados',
-            style: FlutterFlowTheme.of(context).titleSmall.override(
-                  fontFamily: 'Plus Jakarta Sans',
-                  color: Colors.white,
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w500,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).titleSmallFamily),
-                ),
-          ),
+        title: Text(
+          'Atualizar Dados',
+          style: FlutterFlowTheme.of(context).titleSmall.override(
+                fontFamily: 'Plus Jakarta Sans',
+                color: Colors.white,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w500,
+                useGoogleFonts: GoogleFonts.asMap()
+                    .containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
+              ),
         ),
         actions: [],
         centerTitle: false,

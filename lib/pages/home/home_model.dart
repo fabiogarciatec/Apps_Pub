@@ -11,6 +11,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/instant_timer.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:badges/badges.dart' as badges;
@@ -30,6 +31,9 @@ class HomeModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  InstantTimer? timerclients;
+  // Stores action output result for [Backend Call - API (RP Consulta Pontos)] action in Home widget.
+  ApiCallResponse? resultPontos;
   // Model for mainWebNav component.
   late MainWebNavModel mainWebNavModel;
   // Stores action output result for [Backend Call - API (RP Pontuar Consumidor)] action in Column widget.
@@ -71,6 +75,7 @@ class HomeModel extends FlutterFlowModel {
 
   void dispose() {
     unfocusNode.dispose();
+    timerclients?.cancel();
     mainWebNavModel.dispose();
     mobileNavModel.dispose();
   }

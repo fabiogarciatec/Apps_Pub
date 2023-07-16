@@ -2659,16 +2659,22 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                         ),
                                                                                   ),
                                                                                   Text(
-                                                                                    valueOrDefault<String>(
-                                                                                      functions.dataBrasil(valueOrDefault<String>(
-                                                                                        getJsonField(
-                                                                                          FFAppState().jsonClientes,
-                                                                                          r'''$.data_cadastro''',
-                                                                                        ).toString(),
-                                                                                        '0000-00-00',
-                                                                                      )),
-                                                                                      '0000-00-00',
-                                                                                    ).maybeHandleOverflow(maxChars: 10),
+                                                                                    getJsonField(
+                                                                                              FFAppState().jsonClientes,
+                                                                                              r'''$.data_cadastro''',
+                                                                                            ) ==
+                                                                                            null
+                                                                                        ? '00/00/0000'
+                                                                                        : valueOrDefault<String>(
+                                                                                            functions.dataBrasil(valueOrDefault<String>(
+                                                                                              getJsonField(
+                                                                                                FFAppState().jsonClientes,
+                                                                                                r'''$.data_cadastro''',
+                                                                                              ).toString(),
+                                                                                              '0000-00-00',
+                                                                                            )),
+                                                                                            '0000-00-00',
+                                                                                          ).maybeHandleOverflow(maxChars: 10),
                                                                                     maxLines: 1,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Roboto Mono',

@@ -8,6 +8,7 @@ import '/components/message_bottom_sheet/message_bottom_sheet_widget.dart';
 import '/components/mobile_nav/mobile_nav_widget.dart';
 import '/components/trf_roots_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -38,6 +39,8 @@ class HomeModel extends FlutterFlowModel {
   late MainWebNavModel mainWebNavModel;
   // Stores action output result for [Backend Call - API (RP Pontuar Consumidor)] action in Column widget.
   ApiCallResponse? resultApiPontuar;
+  // Stores action output result for [Backend Call - API (RP Consulta Pontos)] action in Column widget.
+  ApiCallResponse? resultApiPontos;
   // Model for mobileNav component.
   late MobileNavModel mobileNavModel;
   bool isDataUploading = false;

@@ -489,6 +489,124 @@ class RPPontuarConsumidorCall {
       );
 }
 
+class APITinyConsultaProdutoCall {
+  static Future<ApiCallResponse> call({
+    String? id = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'API Tiny Consulta Produto',
+      apiUrl: 'https://api.tiny.com.br/api2/produto.obter.php',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'token': "c751506c6c5430b44b15a50620ba9504961ceaf1",
+        'id': id,
+        'formato': "JSON",
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic retorno(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno''',
+      );
+  static dynamic retornostatus(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.status''',
+      );
+  static dynamic retornoproduto(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.produto''',
+      );
+  static dynamic retornoprodutoid(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.produto.id''',
+      );
+  static dynamic retornoprodutonome(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.produto.nome''',
+      );
+  static dynamic retornoprodutocodigo(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.produto.codigo''',
+      );
+  static dynamic retornoprodutounidade(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.produto.unidade''',
+      );
+  static dynamic retornoprodutopreco(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.produto.preco''',
+      );
+  static dynamic retornoprodutoidfornecedor(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.produto.id_fornecedor''',
+      );
+  static dynamic retornoprodutocodigopelofornecedor(dynamic response) =>
+      getJsonField(
+        response,
+        r'''$.retorno.produto.codigo_pelo_fornecedor''',
+      );
+  static dynamic retornoprodutoprecocusto(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.produto.preco_custo''',
+      );
+  static dynamic retornoprodutoprecocustomedio(dynamic response) =>
+      getJsonField(
+        response,
+        r'''$.retorno.produto.preco_custo_medio''',
+      );
+  static dynamic retornoprodutomarca(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.produto.marca''',
+      );
+  static dynamic retornoprodutocategoria(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.produto.categoria''',
+      );
+  static dynamic retornoprodutoimagensexternas(dynamic response) =>
+      getJsonField(
+        response,
+        r'''$.retorno.produto.imagens_externas[:].imagem_externa.url''',
+      );
+}
+
+class APITinyListaProdutosCall {
+  static Future<ApiCallResponse> call({
+    String? pesquisa = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'API Tiny Lista Produtos',
+      apiUrl: 'https://api.tiny.com.br/api2/produtos.pesquisa.php',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'token': "c751506c6c5430b44b15a50620ba9504961ceaf1",
+        'formato': "JSON",
+        'pesquisa': pesquisa,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic retornoprodutos(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.produtos''',
+        true,
+      );
+  static dynamic retornostatus(dynamic response) => getJsonField(
+        response,
+        r'''$.retorno.status''',
+      );
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

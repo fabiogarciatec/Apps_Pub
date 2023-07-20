@@ -142,6 +142,21 @@ class FFAppState extends ChangeNotifier {
       _singleUser =
           (await secureStorage.getString('ff_singleUser'))?.ref ?? _singleUser;
     });
+    await _safeInitAsync(() async {
+      _jsonPecas =
+          (await secureStorage.getStringList('ff_jsonPecas'))?.map((x) {
+                try {
+                  return jsonDecode(x);
+                } catch (e) {
+                  print("Can't decode persisted json. Error: $e.");
+                  return {};
+                }
+              }).toList() ??
+              _jsonPecas;
+    });
+    await _safeInitAsync(() async {
+      _searsh = await secureStorage.getString('ff_searsh') ?? _searsh;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -478,6 +493,56 @@ class FFAppState extends ChangeNotifier {
 
   void deleteSingleUser() {
     secureStorage.delete(key: 'ff_singleUser');
+  }
+
+  List<dynamic> _jsonPecas = [];
+  List<dynamic> get jsonPecas => _jsonPecas;
+  set jsonPecas(List<dynamic> _value) {
+    _jsonPecas = _value;
+    secureStorage.setStringList(
+        'ff_jsonPecas', _value.map((x) => jsonEncode(x)).toList());
+  }
+
+  void deleteJsonPecas() {
+    secureStorage.delete(key: 'ff_jsonPecas');
+  }
+
+  void addToJsonPecas(dynamic _value) {
+    _jsonPecas.add(_value);
+    secureStorage.setStringList(
+        'ff_jsonPecas', _jsonPecas.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeFromJsonPecas(dynamic _value) {
+    _jsonPecas.remove(_value);
+    secureStorage.setStringList(
+        'ff_jsonPecas', _jsonPecas.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeAtIndexFromJsonPecas(int _index) {
+    _jsonPecas.removeAt(_index);
+    secureStorage.setStringList(
+        'ff_jsonPecas', _jsonPecas.map((x) => jsonEncode(x)).toList());
+  }
+
+  void updateJsonPecasAtIndex(
+    int _index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    _jsonPecas[_index] = updateFn(_jsonPecas[_index]);
+    secureStorage.setStringList(
+        'ff_jsonPecas', _jsonPecas.map((x) => jsonEncode(x)).toList());
+  }
+
+  String _searsh = '';
+  String get searsh => _searsh;
+  set searsh(String _value) {
+    _searsh = _value;
+    secureStorage.setString('ff_searsh', _value);
+  }
+
+  void deleteSearsh() {
+    secureStorage.delete(key: 'ff_searsh');
   }
 }
 

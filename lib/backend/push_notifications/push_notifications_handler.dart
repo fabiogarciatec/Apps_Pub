@@ -136,6 +136,7 @@ final parametersBuilderMap =
   'CriarPushNotification': ParameterData.none(),
   'LojaOnline': ParameterData.none(),
   'CadastroRp': ParameterData.none(),
+  'Lista_Pecas': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

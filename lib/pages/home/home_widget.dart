@@ -8,6 +8,7 @@ import '/components/message_bottom_sheet/message_bottom_sheet_widget.dart';
 import '/components/mobile_nav/mobile_nav_widget.dart';
 import '/components/trf_roots_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -1384,52 +1385,74 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         opaque: false,
                                         cursor: SystemMouseCursors.basic ??
                                             MouseCursor.defer,
-                                        child: AnimatedContainer(
-                                          duration: Duration(milliseconds: 150),
-                                          curve: Curves.easeInOut,
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            color: _model.mouseRegionHovered9!
-                                                ? FlutterFlowTheme.of(context)
-                                                    .primaryBackground
-                                                : FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 8.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 0.0, 0.0),
-                                                  child: Icon(
-                                                    Icons.settings_outlined,
-                                                    color: Color(0xFF494949),
-                                                    size: 22.0,
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      'Configurações',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                        child: Visibility(
+                                          visible: valueOrDefault<bool>(
+                                                  currentUserDocument
+                                                      ?.superAdmin,
+                                                  false) ==
+                                              true,
+                                          child: AuthUserStreamWidget(
+                                            builder: (context) =>
+                                                AnimatedContainer(
+                                              duration:
+                                                  Duration(milliseconds: 150),
+                                              curve: Curves.easeInOut,
+                                              width: double.infinity,
+                                              decoration: BoxDecoration(
+                                                color: _model
+                                                        .mouseRegionHovered9!
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 8.0, 0.0, 8.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Icon(
+                                                        Icons.settings_outlined,
+                                                        color:
+                                                            Color(0xFF494949),
+                                                        size: 22.0,
+                                                      ),
                                                     ),
-                                                  ),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          'Configurações',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ],
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -2325,7 +2348,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           children: [
                                             Container(
                                               width: double.infinity,
-                                              height: 250.0,
+                                              height: 262.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -2341,39 +2364,52 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     Align(
                                                       alignment:
                                                           Alignment(0.0, 0),
-                                                      child: TabBar(
-                                                        labelColor:
-                                                            Color(0xFFF7860B),
-                                                        unselectedLabelColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
+                                                      child:
+                                                          FlutterFlowButtonTabBar(
+                                                        useToggleButtonStyle:
+                                                            false,
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodyMedium,
-                                                        indicatorColor:
-                                                            Color(0xFFF20B0B),
-                                                        indicatorWeight: 1.0,
+                                                        unselectedLabelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                        labelColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryBtnText,
+                                                        unselectedLabelColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        backgroundColor:
+                                                            Color(0xBAD26C03),
+                                                        borderColor:
+                                                            Color(0xFFCD0425),
+                                                        unselectedBorderColor:
+                                                            Color(0xFFD26C03),
+                                                        borderWidth: 1.0,
+                                                        borderRadius: 8.0,
+                                                        elevation: 0.0,
+                                                        buttonMargin:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    5.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    0.0),
                                                         tabs: [
                                                           Row(
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
                                                                     .center,
                                                             children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
-                                                                child: FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .donate,
-                                                                  size: 15.0,
-                                                                ),
+                                                              FaIcon(
+                                                                FontAwesomeIcons
+                                                                    .donate,
+                                                                size: 15.0,
                                                               ),
                                                               Tab(
                                                                 text: 'Saldo',
@@ -2450,7 +2486,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     Container(
                                                                   width: double
                                                                       .infinity,
-                                                                  height: 187.0,
+                                                                  height: 185.0,
                                                                   decoration:
                                                                       BoxDecoration(
                                                                     boxShadow: [
@@ -2581,7 +2617,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                 children: [
                                                                                   Text(
-                                                                                    'Saldo',
+                                                                                    'SALDO - CLICK NO CARTÃO P/ EXTRATO',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Outfit',
                                                                                           color: Colors.white,
@@ -2850,11 +2886,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
                                                                                   Text(
-                                                                                    'CASHBACK',
+                                                                                    'CLICK NO CARATÃO P/ RESGATE DO CHASHBACK',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Outfit',
                                                                                           color: Colors.white,
-                                                                                          fontSize: 14.0,
+                                                                                          fontSize: 12.0,
                                                                                           fontWeight: FontWeight.normal,
                                                                                           useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
@@ -3092,62 +3128,108 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
+                                                                        var _shouldSetState =
+                                                                            false;
                                                                         if (valueOrDefault(currentUserDocument?.valorVale, 0.0).toString() !=
                                                                             '0.0') {
-                                                                          _model.resultApiPontuar =
-                                                                              await RPPontuarConsumidorCall.call(
-                                                                            cpf:
-                                                                                FFAppState().docAuth,
-                                                                            pontuacaoReais:
-                                                                                valueOrDefault(currentUserDocument?.valorVale, 0.0),
-                                                                            tipoCompra:
-                                                                                valueOrDefault(currentUserDocument?.motivoVale, ''),
-                                                                            verificador:
-                                                                                valueOrDefault(currentUserDocument?.motivoVale, ''),
-                                                                            estorno:
-                                                                                false,
-                                                                          );
-                                                                          if (RPPontuarConsumidorCall.codigoResposta(
-                                                                                (_model.resultApiPontuar?.jsonBody ?? ''),
-                                                                              ) ==
-                                                                              FFAppState().cod100) {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (alertDialogContext) {
-                                                                                return AlertDialog(
-                                                                                  title: Text('Vale Pontos'),
-                                                                                  content: Text('Resgatado com sucesso!'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                      child: Text('Ok'),
-                                                                                    ),
-                                                                                  ],
-                                                                                );
-                                                                              },
+                                                                          var confirmDialogResponse = await showDialog<bool>(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return AlertDialog(
+                                                                                    title: Text('Regate de vale Pontos'),
+                                                                                    content: Text('Você deseja resgatar seus pontos?'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                        child: Text('Cancelar'),
+                                                                                      ),
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                        child: Text('Confirmar'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  );
+                                                                                },
+                                                                              ) ??
+                                                                              false;
+                                                                          if (confirmDialogResponse) {
+                                                                            _model.resultApiPontuar =
+                                                                                await RPPontuarConsumidorCall.call(
+                                                                              cpf: FFAppState().docAuth,
+                                                                              pontuacaoReais: valueOrDefault(currentUserDocument?.valorVale, 0.0),
+                                                                              tipoCompra: valueOrDefault(currentUserDocument?.motivoVale, ''),
+                                                                              verificador: valueOrDefault(currentUserDocument?.motivoVale, ''),
+                                                                              estorno: false,
                                                                             );
-                                                                          } else {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (alertDialogContext) {
-                                                                                return AlertDialog(
-                                                                                  title: Text('Vale Pontos'),
-                                                                                  content: Text('O Resgate Falhou - Cod :${RPPontuarConsumidorCall.codigoResposta(
-                                                                                    (_model.resultApiPontuar?.jsonBody ?? ''),
-                                                                                  ).toString()}'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                      child: Text('Ok'),
-                                                                                    ),
-                                                                                  ],
+                                                                            _shouldSetState =
+                                                                                true;
+                                                                            if (RPPontuarConsumidorCall.codigoResposta(
+                                                                                  (_model.resultApiPontuar?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                FFAppState().cod100) {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return AlertDialog(
+                                                                                    title: Text('Vale Pontos'),
+                                                                                    content: Text('Resgatado com sucesso!'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                              _model.resultApiPontos = await RPConsultaPontosCall.call(
+                                                                                cpf: FFAppState().docAuth,
+                                                                              );
+                                                                              _shouldSetState = true;
+                                                                              setState(() {
+                                                                                FFAppState().jsonSaldo = getJsonField(
+                                                                                  (_model.resultApiPontos?.jsonBody ?? ''),
+                                                                                  r'''$''',
                                                                                 );
-                                                                              },
-                                                                            );
-                                                                          }
+                                                                                FFAppState().jsonPontos = getJsonField(
+                                                                                  (_model.resultApiPontos?.jsonBody ?? ''),
+                                                                                  r'''$.produtos''',
+                                                                                );
+                                                                              });
 
-                                                                          context
-                                                                              .pushNamed('Home');
+                                                                              await currentUserReference!.update(createUsersRecordData(
+                                                                                codvalepontos: '- - - - - - -',
+                                                                                dtInclusaoVale: '00/00/0000',
+                                                                                pontosvale: 0.0,
+                                                                                valorVale: 0.0,
+                                                                                motivoVale: '.',
+                                                                              ));
+                                                                            } else {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return AlertDialog(
+                                                                                    title: Text('Vale Pontos'),
+                                                                                    content: Text('O Resgate Falhou - Cod :${RPPontuarConsumidorCall.codigoResposta(
+                                                                                      (_model.resultApiPontuar?.jsonBody ?? ''),
+                                                                                    ).toString()}'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                            }
+
+                                                                            context.pushNamed('Home');
+                                                                          } else {
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                            return;
+                                                                          }
                                                                         } else {
                                                                           await showDialog(
                                                                             context:
@@ -3166,10 +3248,14 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                               );
                                                                             },
                                                                           );
+                                                                          if (_shouldSetState)
+                                                                            setState(() {});
+                                                                          return;
                                                                         }
 
-                                                                        setState(
-                                                                            () {});
+                                                                        if (_shouldSetState)
+                                                                          setState(
+                                                                              () {});
                                                                       },
                                                                       child:
                                                                           Column(
@@ -3196,6 +3282,29 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                         color: Colors.white,
                                                                                         fontSize: 18.0,
                                                                                         fontWeight: FontWeight.bold,
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                      ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                20.0,
+                                                                                5.0,
+                                                                                20.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Text(
+                                                                                  'CLICK NO CARTÃO P/RESGATAR SEUS PONTOS',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Outfit',
+                                                                                        color: Colors.white,
+                                                                                        fontSize: 12.0,
+                                                                                        fontWeight: FontWeight.normal,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
@@ -3468,72 +3577,89 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.start,
                                                 children: [
-                                                  Container(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset:
-                                                              Offset(0.0, 2.0),
-                                                        )
-                                                      ],
+                                                  Material(
+                                                    color: Colors.transparent,
+                                                    elevation: 1.0,
+                                                    shape:
+                                                        RoundedRectangleBorder(
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               16.0),
                                                     ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        FlutterFlowIconButton(
-                                                          borderColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .lineColor,
-                                                          borderRadius: 12.0,
-                                                          borderWidth: 1.0,
-                                                          buttonSize: 50.0,
-                                                          fillColor: FlutterFlowTheme
+                                                    child: Container(
+                                                      width: 55.0,
+                                                      height: 55.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 4.0,
+                                                            color: Color(
+                                                                0x00D26C03),
+                                                            offset: Offset(
+                                                                0.0, 2.0),
+                                                          )
+                                                        ],
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(16.0),
+                                                        border: Border.all(
+                                                          color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryBackground,
-                                                          icon: Icon(
-                                                            Icons.list_alt,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            size: 28.0,
-                                                          ),
-                                                          onPressed: () async {
-                                                            context.pushNamed(
-                                                              'Extrato',
-                                                              extra: <String,
-                                                                  dynamic>{
-                                                                kTransitionInfoKey:
-                                                                    TransitionInfo(
-                                                                  hasTransition:
-                                                                      true,
-                                                                  transitionType:
-                                                                      PageTransitionType
-                                                                          .scale,
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .bottomCenter,
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          1000),
-                                                                ),
-                                                              },
-                                                            );
-                                                          },
+                                                              .primary,
+                                                          width: 2.0,
                                                         ),
-                                                      ],
+                                                      ),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          FlutterFlowIconButton(
+                                                            borderColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .lineColor,
+                                                            borderRadius: 12.0,
+                                                            borderWidth: 1.0,
+                                                            buttonSize: 50.0,
+                                                            fillColor: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                            icon: Icon(
+                                                              Icons.list_alt,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              size: 28.0,
+                                                            ),
+                                                            onPressed:
+                                                                () async {
+                                                              context.pushNamed(
+                                                                'Extrato',
+                                                                extra: <String,
+                                                                    dynamic>{
+                                                                  kTransitionInfoKey:
+                                                                      TransitionInfo(
+                                                                    hasTransition:
+                                                                        true,
+                                                                    transitionType:
+                                                                        PageTransitionType
+                                                                            .scale,
+                                                                    alignment:
+                                                                        Alignment
+                                                                            .bottomCenter,
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            1000),
+                                                                  ),
+                                                                },
+                                                              );
+                                                            },
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
                                                   ),
                                                 ],

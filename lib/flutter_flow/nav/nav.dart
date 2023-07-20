@@ -176,6 +176,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CadastroRp',
           path: '/cadastroRp',
           builder: (context, params) => CadastroRpWidget(),
+        ),
+        FFRoute(
+          name: 'Lista_Pecas',
+          path: '/listaPecas',
+          builder: (context, params) => ListaPecasWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

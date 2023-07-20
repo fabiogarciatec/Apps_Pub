@@ -65,11 +65,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(milliseconds: 2000));
+      await Future.delayed(const Duration(milliseconds: 1000));
       if (valueOrDefault<bool>(currentUserDocument?.aceiteTermo, false) ==
           true) {
         _model.timerclients = InstantTimer.periodic(
-          duration: Duration(milliseconds: 60000),
+          duration: Duration(milliseconds: 2000),
           callback: (timer) async {
             _model.resultPontos = await RPConsultaPontosCall.call(
               cpf: valueOrDefault<String>(
@@ -3198,7 +3198,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                               });
 
                                                                               await currentUserReference!.update(createUsersRecordData(
-                                                                                codvalepontos: '- - - - - - -',
+                                                                                codvalepontos: '- - - - - - ',
                                                                                 dtInclusaoVale: '00/00/0000',
                                                                                 pontosvale: 0.0,
                                                                                 valorVale: 0.0,
@@ -3224,7 +3224,21 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                               );
                                                                             }
 
-                                                                            context.pushNamed('Home');
+                                                                            context.pushNamed(
+                                                                              'Extrato',
+                                                                              extra: <String, dynamic>{
+                                                                                kTransitionInfoKey: TransitionInfo(
+                                                                                  hasTransition: true,
+                                                                                  transitionType: PageTransitionType.scale,
+                                                                                  alignment: Alignment.bottomCenter,
+                                                                                  duration: Duration(milliseconds: 2000),
+                                                                                ),
+                                                                              },
+                                                                            );
+
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                            return;
                                                                           } else {
                                                                             if (_shouldSetState)
                                                                               setState(() {});

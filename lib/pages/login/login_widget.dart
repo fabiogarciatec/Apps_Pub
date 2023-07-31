@@ -297,215 +297,190 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   FFButtonWidget(
-                                    onPressed: _model
-                                                .documentoController.text ==
-                                            ''
-                                        ? null
-                                        : () async {
-                                            var _shouldSetState = false;
-                                            _model.resultApiCliente =
-                                                await RPConsultaClientesCall
-                                                    .call(
-                                              cpf: _model
-                                                  .documentoController.text,
+                                    onPressed: () async {
+                                      var _shouldSetState = false;
+                                      _model.resultApiCliente =
+                                          await RPConsultaClientesCall.call(
+                                        cpf: _model.documentoController.text,
+                                      );
+                                      _shouldSetState = true;
+                                      if (RPConsultaClientesCall.codigoResposta(
+                                            (_model.resultApiCliente
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ) ==
+                                          100) {
+                                        FFAppState().update(() {
+                                          FFAppState().docAuth =
+                                              RPConsultaClientesCall.documento(
+                                            (_model.resultApiCliente
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString();
+                                          FFAppState().jsonClientes =
+                                              RPConsultaClientesCall
+                                                  .clientRetorno(
+                                            (_model.resultApiCliente
+                                                    ?.jsonBody ??
+                                                ''),
+                                          );
+                                          FFAppState().dataNascimento =
+                                              valueOrDefault<String>(
+                                            getJsonField(
+                                              (_model.resultApiCliente
+                                                      ?.jsonBody ??
+                                                  ''),
+                                              r'''$.data_nascimento''',
+                                            ).toString(),
+                                            '0000-00-00',
+                                          );
+                                        });
+                                        if (FFAppState().dataNascimento ==
+                                            'null') {
+                                          setState(() {
+                                            FFAppState().dataNascimento =
+                                                '1000-01-01';
+                                          });
+                                        }
+                                        if (FFAppState().docAuth != null &&
+                                            FFAppState().docAuth != '') {
+                                          _model.resultApiPontos =
+                                              await RPConsultaPontosCall.call(
+                                            cpf: FFAppState().docAuth,
+                                          );
+                                          _shouldSetState = true;
+                                          setState(() {
+                                            FFAppState().jsonPontos =
+                                                getJsonField(
+                                              (_model.resultApiPontos
+                                                      ?.jsonBody ??
+                                                  ''),
+                                              r'''$.produtos''',
                                             );
-                                            _shouldSetState = true;
-                                            if (RPConsultaClientesCall
-                                                    .codigoResposta(
-                                                  (_model.resultApiCliente
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ) ==
-                                                100) {
-                                              FFAppState().update(() {
-                                                FFAppState().docAuth =
-                                                    RPConsultaClientesCall
-                                                        .documento(
-                                                  (_model.resultApiCliente
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ).toString();
-                                                FFAppState().jsonClientes =
-                                                    RPConsultaClientesCall
-                                                        .clientRetorno(
-                                                  (_model.resultApiCliente
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                );
-                                                FFAppState().dataNascimento =
-                                                    valueOrDefault<String>(
-                                                  getJsonField(
-                                                    (_model.resultApiCliente
-                                                            ?.jsonBody ??
-                                                        ''),
+                                            FFAppState().jsonSaldo =
+                                                getJsonField(
+                                              (_model.resultApiPontos
+                                                      ?.jsonBody ??
+                                                  ''),
+                                              r'''$''',
+                                            );
+                                          });
+                                          _model.resultLista =
+                                              await RPListaDeBrindesCall.call();
+                                          _shouldSetState = true;
+                                          setState(() {
+                                            FFAppState().JsonProdutos =
+                                                getJsonField(
+                                              (_model.resultLista?.jsonBody ??
+                                                  ''),
+                                              r'''$.produtos''',
+                                            );
+                                          });
+                                          await Future.delayed(const Duration(
+                                              milliseconds: 2000));
+                                          if ((getJsonField(
+                                                    FFAppState().jsonClientes,
+                                                    r'''$.email''',
+                                                  ) ==
+                                                  FFAppState().Arroba) ||
+                                              (getJsonField(
+                                                    FFAppState().jsonClientes,
+                                                    r'''$.telefone''',
+                                                  ) ==
+                                                  null) ||
+                                              (getJsonField(
+                                                    FFAppState().jsonClientes,
                                                     r'''$.data_nascimento''',
-                                                  ).toString(),
-                                                  '0000-00-00',
+                                                  ) ==
+                                                  FFAppState().dataIgual)) {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return AlertDialog(
+                                                  title:
+                                                      Text('Dados incompletos'),
+                                                  content: Text(
+                                                      'Atualizar dados de usuário. 👤 '),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
                                                 );
-                                              });
-                                              if (FFAppState().dataNascimento ==
-                                                  'null') {
-                                                setState(() {
-                                                  FFAppState().dataNascimento =
-                                                      '1000-01-01';
-                                                });
-                                              }
-                                              if (FFAppState().docAuth !=
-                                                      null &&
-                                                  FFAppState().docAuth != '') {
-                                                _model.resultApiPontos =
-                                                    await RPConsultaPontosCall
-                                                        .call(
-                                                  cpf: FFAppState().docAuth,
-                                                );
-                                                _shouldSetState = true;
-                                                setState(() {
-                                                  FFAppState().jsonPontos =
-                                                      getJsonField(
-                                                    (_model.resultApiPontos
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                    r'''$.produtos''',
-                                                  );
-                                                  FFAppState().jsonSaldo =
-                                                      getJsonField(
-                                                    (_model.resultApiPontos
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                    r'''$''',
-                                                  );
-                                                });
-                                                _model.resultLista =
-                                                    await RPListaDeBrindesCall
-                                                        .call();
-                                                _shouldSetState = true;
-                                                setState(() {
-                                                  FFAppState().JsonProdutos =
-                                                      getJsonField(
-                                                    (_model.resultLista
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                    r'''$.produtos''',
-                                                  );
-                                                });
-                                                await Future.delayed(
-                                                    const Duration(
-                                                        milliseconds: 2000));
-                                                if ((getJsonField(
-                                                          FFAppState()
-                                                              .jsonClientes,
-                                                          r'''$.email''',
-                                                        ) ==
-                                                        FFAppState().Arroba) ||
-                                                    (getJsonField(
-                                                          FFAppState()
-                                                              .jsonClientes,
-                                                          r'''$.telefone''',
-                                                        ) ==
-                                                        null) ||
-                                                    (getJsonField(
-                                                          FFAppState()
-                                                              .jsonClientes,
-                                                          r'''$.data_nascimento''',
-                                                        ) ==
-                                                        FFAppState()
-                                                            .dataIgual)) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text(
-                                                            'Dados incompletos'),
-                                                        content: Text(
-                                                            'Atualizar dados de usuário. 👤 '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  );
+                                              },
+                                            );
 
-                                                  context.pushNamedAuth(
-                                                      'AtualizaDados',
-                                                      context.mounted);
-                                                } else {
-                                                  context.pushNamedAuth(
-                                                      'Home', context.mounted);
+                                            context.pushNamedAuth(
+                                                'AtualizaDados',
+                                                context.mounted);
+                                          } else {
+                                            context.pushNamedAuth(
+                                                'Home', context.mounted);
 
-                                                  GoRouter.of(context)
-                                                      .prepareAuthEvent();
+                                            GoRouter.of(context)
+                                                .prepareAuthEvent();
 
-                                                  final user = await authManager
-                                                      .signInWithEmail(
-                                                    context,
-                                                    getJsonField(
-                                                      FFAppState().jsonClientes,
-                                                      r'''$.email''',
-                                                    ).toString(),
-                                                    FFAppState().passwordPadrao,
-                                                  );
-                                                  if (user == null) {
-                                                    return;
-                                                  }
-                                                }
-                                              } else {
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                            } else {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title:
-                                                        Text('Não Cadastrado'),
-                                                    content: Text(
-                                                        'Realize Seu Cadastro'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-
-                                              context.pushNamedAuth(
-                                                'CadastroRp',
-                                                context.mounted,
-                                                extra: <String, dynamic>{
-                                                  kTransitionInfoKey:
-                                                      TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType
-                                                            .scale,
-                                                    alignment:
-                                                        Alignment.bottomCenter,
-                                                    duration: Duration(
-                                                        milliseconds: 1000),
-                                                  ),
-                                                },
-                                              );
-
-                                              if (_shouldSetState)
-                                                setState(() {});
+                                            final user = await authManager
+                                                .signInWithEmail(
+                                              context,
+                                              getJsonField(
+                                                FFAppState().jsonClientes,
+                                                r'''$.email''',
+                                              ).toString(),
+                                              FFAppState().passwordPadrao,
+                                            );
+                                            if (user == null) {
                                               return;
                                             }
-
-                                            if (_shouldSetState)
-                                              setState(() {});
+                                          }
+                                        } else {
+                                          if (_shouldSetState) setState(() {});
+                                          return;
+                                        }
+                                      } else {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return AlertDialog(
+                                              title: Text('Não Cadastrado'),
+                                              content:
+                                                  Text('Realize Seu Cadastro'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            );
                                           },
+                                        );
+
+                                        context.pushNamedAuth(
+                                          'CadastroRp',
+                                          context.mounted,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.scale,
+                                              alignment: Alignment.bottomCenter,
+                                              duration:
+                                                  Duration(milliseconds: 1000),
+                                            ),
+                                          },
+                                        );
+
+                                        if (_shouldSetState) setState(() {});
+                                        return;
+                                      }
+
+                                      if (_shouldSetState) setState(() {});
+                                    },
                                     text: 'Entrar',
                                     options: FFButtonOptions(
                                       width: 130.0,
@@ -533,8 +508,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
-                                      disabledColor: Color(0x3F636363),
-                                      disabledTextColor: Colors.white,
                                     ),
                                   ),
                                 ],

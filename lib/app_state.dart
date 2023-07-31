@@ -157,6 +157,13 @@ class FFAppState extends ChangeNotifier {
     await _safeInitAsync(() async {
       _searsh = await secureStorage.getString('ff_searsh') ?? _searsh;
     });
+    await _safeInitAsync(() async {
+      _uidUser = await secureStorage.getString('ff_uidUser') ?? _uidUser;
+    });
+    await _safeInitAsync(() async {
+      _DocReference =
+          await secureStorage.getString('ff_DocReference') ?? _DocReference;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -543,6 +550,28 @@ class FFAppState extends ChangeNotifier {
 
   void deleteSearsh() {
     secureStorage.delete(key: 'ff_searsh');
+  }
+
+  String _uidUser = '';
+  String get uidUser => _uidUser;
+  set uidUser(String _value) {
+    _uidUser = _value;
+    secureStorage.setString('ff_uidUser', _value);
+  }
+
+  void deleteUidUser() {
+    secureStorage.delete(key: 'ff_uidUser');
+  }
+
+  String _DocReference = '';
+  String get DocReference => _DocReference;
+  set DocReference(String _value) {
+    _DocReference = _value;
+    secureStorage.setString('ff_DocReference', _value);
+  }
+
+  void deleteDocReference() {
+    secureStorage.delete(key: 'ff_DocReference');
   }
 }
 

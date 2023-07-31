@@ -20,3 +20,6 @@ export '/pages/criar_push_notification/criar_push_notification_widget.dart'
 export '/pages/loja_online/loja_online_widget.dart' show LojaOnlineWidget;
 export '/pages/cadastro_rp/cadastro_rp_widget.dart' show CadastroRpWidget;
 export '/pages/lista_pecas/lista_pecas_widget.dart' show ListaPecasWidget;
+export '/pages/configurations/configurations_widget.dart'
+    show ConfigurationsWidget;
+export '/pages/ate_logo/ate_logo_widget.dart' show AteLogoWidget;

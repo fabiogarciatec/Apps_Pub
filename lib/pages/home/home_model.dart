@@ -35,6 +35,8 @@ class HomeModel extends FlutterFlowModel {
   InstantTimer? timerclients;
   // Stores action output result for [Backend Call - API (RP Consulta Pontos)] action in Home widget.
   ApiCallResponse? resultPontos;
+  // Stores action output result for [Backend Call - API (RP Lista de Brindes)] action in Home widget.
+  ApiCallResponse? resultApiBrindes;
   // Model for mainWebNav component.
   late MainWebNavModel mainWebNavModel;
   // Stores action output result for [Backend Call - API (RP Pontuar Consumidor)] action in Column widget.

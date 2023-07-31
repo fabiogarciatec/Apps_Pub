@@ -784,7 +784,7 @@ class _ExtratoWidgetState extends State<ExtratoWidget> {
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      'Pontos obtido ou utilizados em resgates.',
+                                                      'Pontos obtidos ou utilizados em resgates.',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)

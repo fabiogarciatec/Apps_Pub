@@ -141,6 +141,11 @@ class UsersRecord extends FirestoreRecord {
   bool get superAdmin => _superAdmin ?? false;
   bool hasSuperAdmin() => _superAdmin != null;
 
+  // "imagem_vale" field.
+  String? _imagemVale;
+  String get imagemVale => _imagemVale ?? '';
+  bool hasImagemVale() => _imagemVale != null;
+
   void _initializeFields() {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
@@ -167,6 +172,7 @@ class UsersRecord extends FirestoreRecord {
     _motivoVale = snapshotData['motivoVale'] as String?;
     _funcionario = snapshotData['funcionario'] as bool?;
     _superAdmin = snapshotData['SuperAdmin'] as bool?;
+    _imagemVale = snapshotData['imagem_vale'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -228,6 +234,7 @@ Map<String, dynamic> createUsersRecordData({
   String? motivoVale,
   bool? funcionario,
   bool? superAdmin,
+  String? imagemVale,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -256,6 +263,7 @@ Map<String, dynamic> createUsersRecordData({
       'motivoVale': motivoVale,
       'funcionario': funcionario,
       'SuperAdmin': superAdmin,
+      'imagem_vale': imagemVale,
     }.withoutNulls,
   );
 
@@ -291,7 +299,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.valorVale == e2?.valorVale &&
         e1?.motivoVale == e2?.motivoVale &&
         e1?.funcionario == e2?.funcionario &&
-        e1?.superAdmin == e2?.superAdmin;
+        e1?.superAdmin == e2?.superAdmin &&
+        e1?.imagemVale == e2?.imagemVale;
   }
 
   @override
@@ -320,7 +329,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.valorVale,
         e?.motivoVale,
         e?.funcionario,
-        e?.superAdmin
+        e?.superAdmin,
+        e?.imagemVale
       ]);
 
   @override

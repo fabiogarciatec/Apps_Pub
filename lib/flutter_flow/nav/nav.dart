@@ -4,16 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
-import '../flutter_flow_theme.dart';
 import '/backend/backend.dart';
 
 import '../../auth/base_auth_user_provider.dart';
 import '../../backend/push_notifications/push_notifications_handler.dart'
     show PushNotificationsHandler;
-import '../../index.dart';
-import '../../main.dart';
-import '../lat_lng.dart';
-import '../place.dart';
+import '/index.dart';
+import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -181,6 +182,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Lista_Pecas',
           path: '/listaPecas',
           builder: (context, params) => ListaPecasWidget(),
+        ),
+        FFRoute(
+          name: 'Configurations',
+          path: '/configurations',
+          builder: (context, params) => ConfigurationsWidget(),
+        ),
+        FFRoute(
+          name: 'AteLogo',
+          path: '/ateLogo',
+          builder: (context, params) => AteLogoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

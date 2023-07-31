@@ -959,6 +959,8 @@ class _AtualizaDadosWidgetState extends State<AtualizaDadosWidget> {
                                   motivoVale: '',
                                   funcionario: false,
                                   superAdmin: false,
+                                  imagemVale:
+                                      'https://dellasjoias.com.br/wp-content/uploads/2020/08/vale-presente.png',
                                 ));
 
                             _model.resultApiClient =
@@ -974,6 +976,9 @@ class _AtualizaDadosWidgetState extends State<AtualizaDadosWidget> {
                                 (_model.resultApiClient?.jsonBody ?? ''),
                                 r'''$.data_nascimento''',
                               ).toString();
+                              FFAppState().uidUser = currentUserUid;
+                              FFAppState().DocReference =
+                                  currentUserReference!.id;
                             });
                             await showDialog(
                               context: context,

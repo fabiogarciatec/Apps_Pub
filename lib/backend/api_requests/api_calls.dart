@@ -607,6 +607,37 @@ class APITinyListaProdutosCall {
       );
 }
 
+class RPDeletarConsumidorCall {
+  static Future<ApiCallResponse> call({
+    String? cpf = '',
+  }) {
+    final body = '''
+{
+  "cpf": "${cpf}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'RP Deletar Consumidor',
+      apiUrl: 'https://api.fidelimax.com.br/api/Integracao/DeletarConsumidor',
+      callType: ApiCallType.POST,
+      headers: {
+        'AuthToken': 'd83b56f2-96da-400d-b198-1e0d9b05d2ee-673',
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic codigoResposta(dynamic response) => getJsonField(
+        response,
+        r'''$.CodigoResposta''',
+      );
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

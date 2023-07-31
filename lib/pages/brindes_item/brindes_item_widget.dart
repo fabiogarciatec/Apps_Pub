@@ -200,25 +200,37 @@ class _BrindesItemWidgetState extends State<BrindesItemWidget>
                                           Duration(milliseconds: 500),
                                       fadeOutDuration:
                                           Duration(milliseconds: 500),
-                                      imageUrl: widget.foto!,
+                                      imageUrl: valueOrDefault<String>(
+                                        widget.foto,
+                                        'https://taurovita.com/wp-content/uploads/2017/07/20190726_213629_1____01-PRODUTO-SEM-IMAGEM-1000X1000-1.jpeg',
+                                      ),
                                       fit: BoxFit.contain,
                                     ),
                                     allowRotation: false,
-                                    tag: widget.foto!,
+                                    tag: valueOrDefault<String>(
+                                      widget.foto,
+                                      'https://taurovita.com/wp-content/uploads/2017/07/20190726_213629_1____01-PRODUTO-SEM-IMAGEM-1000X1000-1.jpeg',
+                                    ),
                                     useHeroAnimation: true,
                                   ),
                                 ),
                               );
                             },
                             child: Hero(
-                              tag: widget.foto!,
+                              tag: valueOrDefault<String>(
+                                widget.foto,
+                                'https://taurovita.com/wp-content/uploads/2017/07/20190726_213629_1____01-PRODUTO-SEM-IMAGEM-1000X1000-1.jpeg',
+                              ),
                               transitionOnUserGestures: true,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15.0),
                                 child: CachedNetworkImage(
                                   fadeInDuration: Duration(milliseconds: 500),
                                   fadeOutDuration: Duration(milliseconds: 500),
-                                  imageUrl: widget.foto!,
+                                  imageUrl: valueOrDefault<String>(
+                                    widget.foto,
+                                    'https://taurovita.com/wp-content/uploads/2017/07/20190726_213629_1____01-PRODUTO-SEM-IMAGEM-1000X1000-1.jpeg',
+                                  ),
                                   width: double.infinity,
                                   height: 300.0,
                                   fit: BoxFit.cover,

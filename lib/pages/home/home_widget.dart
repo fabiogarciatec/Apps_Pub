@@ -87,7 +87,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                 r'''$''',
               );
             });
+            _model.resultApiBrindes = await RPListaDeBrindesCall.call();
+            setState(() {
+              FFAppState().JsonProdutos = getJsonField(
+                (_model.resultApiBrindes?.jsonBody ?? ''),
+                r'''$.produtos''',
+              );
+            });
             null?.cancel();
+            return;
           },
           startImmediately: false,
         );
@@ -109,6 +117,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
         );
 
         context.goNamed('AtualizaDados');
+
+        return;
       }
     });
 
@@ -248,6 +258,44 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed('Termo');
+                                              },
+                                              child: Text(
+                                                'Termo de Uso',
+                                                textAlign: TextAlign.start,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          fontSize: 14.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMediumFamily),
+                                                        ),
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -1385,40 +1433,60 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         opaque: false,
                                         cursor: SystemMouseCursors.basic ??
                                             MouseCursor.defer,
-                                        child: Visibility(
-                                          visible: valueOrDefault<bool>(
-                                                  currentUserDocument
-                                                      ?.superAdmin,
-                                                  false) ==
-                                              true,
-                                          child: AuthUserStreamWidget(
-                                            builder: (context) =>
-                                                AnimatedContainer(
-                                              duration:
-                                                  Duration(milliseconds: 150),
-                                              curve: Curves.easeInOut,
-                                              width: double.infinity,
-                                              decoration: BoxDecoration(
-                                                color: _model
-                                                        .mouseRegionHovered9!
-                                                    ? FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground
-                                                    : FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 8.0, 0.0, 8.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Padding(
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'Configurations',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType
+                                                          .topToBottom,
+                                                  duration: Duration(
+                                                      milliseconds: 1000),
+                                                ),
+                                              },
+                                            );
+                                          },
+                                          child: AnimatedContainer(
+                                            duration:
+                                                Duration(milliseconds: 150),
+                                            curve: Curves.easeInOut,
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color: _model.mouseRegionHovered9!
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .primaryBackground
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(12.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Icon(
+                                                      Icons.settings_outlined,
+                                                      color: Color(0xFF494949),
+                                                      size: 22.0,
+                                                    ),
+                                                  ),
+                                                  Expanded(
+                                                    child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
@@ -1426,32 +1494,16 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
-                                                      child: Icon(
-                                                        Icons.settings_outlined,
-                                                        color:
-                                                            Color(0xFF494949),
-                                                        size: 22.0,
+                                                      child: Text(
+                                                        'Configurações',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
                                                       ),
                                                     ),
-                                                    Expanded(
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          'Configurações',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
@@ -3278,79 +3330,102 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                         mainAxisAlignment:
                                                                             MainAxisAlignment.spaceAround,
                                                                         children: [
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                20.0,
-                                                                                10.0,
-                                                                                20.0,
-                                                                                0.0),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(-1.0, 0.0),
                                                                             child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                                                              children: [
-                                                                                Text(
-                                                                                  'VALE PONTOS',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                        color: Colors.white,
-                                                                                        fontSize: 18.0,
-                                                                                        fontWeight: FontWeight.bold,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                      ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                20.0,
-                                                                                5.0,
-                                                                                20.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                Text(
-                                                                                  'CLICK NO CARTÃO P/RESGATAR SEUS PONTOS',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Outfit',
-                                                                                        color: Colors.white,
-                                                                                        fontSize: 12.0,
-                                                                                        fontWeight: FontWeight.normal,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                      ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                20.0,
-                                                                                5.0,
-                                                                                20.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                AuthUserStreamWidget(
-                                                                                  builder: (context) => Text(
-                                                                                    'Ref : ${valueOrDefault<String>(
-                                                                                      valueOrDefault(currentUserDocument?.motivoVale, ''),
-                                                                                      'Sem informação...',
-                                                                                    )}',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Outfit',
-                                                                                          color: Colors.white,
-                                                                                          fontSize: 14.0,
-                                                                                          fontWeight: FontWeight.normal,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                    child: Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                      children: [
+                                                                                        Align(
+                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                          child: Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 20.0, 5.0),
+                                                                                            child: Row(
+                                                                                              mainAxisSize: MainAxisSize.min,
+                                                                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                              children: [
+                                                                                                Text(
+                                                                                                  'VALE PONTOS',
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                        color: Colors.white,
+                                                                                                        fontSize: 18.0,
+                                                                                                        fontWeight: FontWeight.bold,
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ),
                                                                                         ),
+                                                                                        Text(
+                                                                                          'CLICK NO CARTÃO \nP/RESGATAR SEUS PONTOS',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Outfit',
+                                                                                                color: Colors.white,
+                                                                                                fontSize: 12.0,
+                                                                                                fontWeight: FontWeight.normal,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                        Align(
+                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                          child: Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 20.0, 0.0),
+                                                                                            child: Row(
+                                                                                              mainAxisSize: MainAxisSize.min,
+                                                                                              children: [
+                                                                                                Align(
+                                                                                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                                  child: AuthUserStreamWidget(
+                                                                                                    builder: (context) => Text(
+                                                                                                      'Ref : ${valueOrDefault<String>(
+                                                                                                        valueOrDefault(currentUserDocument?.motivoVale, ''),
+                                                                                                        'Sem informação...',
+                                                                                                      )}',
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                            fontFamily: 'Outfit',
+                                                                                                            color: Colors.white,
+                                                                                                            fontSize: 14.0,
+                                                                                                            fontWeight: FontWeight.normal,
+                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                                          ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
                                                                                   ),
-                                                                                ),
-                                                                              ],
+                                                                                  AuthUserStreamWidget(
+                                                                                    builder: (context) => ClipRRect(
+                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                      child: Image.network(
+                                                                                        valueOrDefault<String>(
+                                                                                          valueOrDefault(currentUserDocument?.imagemVale, ''),
+                                                                                          'https://dellasjoias.com.br/wp-content/uploads/2020/08/vale-presente.png',
+                                                                                        ),
+                                                                                        width: 90.0,
+                                                                                        height: 75.0,
+                                                                                        fit: BoxFit.cover,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                           Padding(

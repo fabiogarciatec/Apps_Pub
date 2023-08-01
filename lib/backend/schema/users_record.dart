@@ -146,6 +146,16 @@ class UsersRecord extends FirestoreRecord {
   String get imagemVale => _imagemVale ?? '';
   bool hasImagemVale() => _imagemVale != null;
 
+  // "qtd_item_resgate" field.
+  int? _qtdItemResgate;
+  int get qtdItemResgate => _qtdItemResgate ?? 0;
+  bool hasQtdItemResgate() => _qtdItemResgate != null;
+
+  // "sku_item" field.
+  String? _skuItem;
+  String get skuItem => _skuItem ?? '';
+  bool hasSkuItem() => _skuItem != null;
+
   void _initializeFields() {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
@@ -173,6 +183,8 @@ class UsersRecord extends FirestoreRecord {
     _funcionario = snapshotData['funcionario'] as bool?;
     _superAdmin = snapshotData['SuperAdmin'] as bool?;
     _imagemVale = snapshotData['imagem_vale'] as String?;
+    _qtdItemResgate = castToType<int>(snapshotData['qtd_item_resgate']);
+    _skuItem = snapshotData['sku_item'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -235,6 +247,8 @@ Map<String, dynamic> createUsersRecordData({
   bool? funcionario,
   bool? superAdmin,
   String? imagemVale,
+  int? qtdItemResgate,
+  String? skuItem,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -264,6 +278,8 @@ Map<String, dynamic> createUsersRecordData({
       'funcionario': funcionario,
       'SuperAdmin': superAdmin,
       'imagem_vale': imagemVale,
+      'qtd_item_resgate': qtdItemResgate,
+      'sku_item': skuItem,
     }.withoutNulls,
   );
 
@@ -300,7 +316,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.motivoVale == e2?.motivoVale &&
         e1?.funcionario == e2?.funcionario &&
         e1?.superAdmin == e2?.superAdmin &&
-        e1?.imagemVale == e2?.imagemVale;
+        e1?.imagemVale == e2?.imagemVale &&
+        e1?.qtdItemResgate == e2?.qtdItemResgate &&
+        e1?.skuItem == e2?.skuItem;
   }
 
   @override
@@ -330,7 +348,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.motivoVale,
         e?.funcionario,
         e?.superAdmin,
-        e?.imagemVale
+        e?.imagemVale,
+        e?.qtdItemResgate,
+        e?.skuItem
       ]);
 
   @override

@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/instant_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'mobile_nav_model.dart';
@@ -410,15 +409,14 @@ class _MobileNavWidgetState extends State<MobileNavWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    await launchURL(
-                        'https://www.instagram.com/raizesmaquinascase');
+                    await launchURL('https://linktr.ee/raizesmaquinas');
                   },
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FaIcon(
-                        FontAwesomeIcons.instagram,
+                      Icon(
+                        Icons.stars_rounded,
                         color: FlutterFlowTheme.of(context).primaryBtnText,
                         size: 24.0,
                       ),
@@ -426,7 +424,7 @@ class _MobileNavWidgetState extends State<MobileNavWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
                         child: Text(
-                          'Instagram',
+                          'Canais',
                           style: FlutterFlowTheme.of(context)
                               .bodySmall
                               .override(

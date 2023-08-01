@@ -961,6 +961,8 @@ class _AtualizaDadosWidgetState extends State<AtualizaDadosWidget> {
                                   superAdmin: false,
                                   imagemVale:
                                       'https://dellasjoias.com.br/wp-content/uploads/2020/08/vale-presente.png',
+                                  skuItem: '0',
+                                  qtdItemResgate: 0,
                                 ));
 
                             _model.resultApiClient =

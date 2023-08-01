@@ -3219,11 +3219,16 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                   (_model.resultApiPontuar?.jsonBody ?? ''),
                                                                                 ) ==
                                                                                 FFAppState().cod100) {
+                                                                              await RPResgatarPremioCall.call(
+                                                                                cpf: FFAppState().docAuth,
+                                                                                premioIdentificador: valueOrDefault(currentUserDocument?.skuItem, ''),
+                                                                                quantidade: valueOrDefault(currentUserDocument?.qtdItemResgate, 0).toString(),
+                                                                              );
                                                                               await showDialog(
                                                                                 context: context,
                                                                                 builder: (alertDialogContext) {
                                                                                   return AlertDialog(
-                                                                                    title: Text('Vale Pontos'),
+                                                                                    title: Text('Vale Presente'),
                                                                                     content: Text('Resgatado com sucesso!'),
                                                                                     actions: [
                                                                                       TextButton(
@@ -3255,13 +3260,16 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                 pontosvale: 0.0,
                                                                                 valorVale: 0.0,
                                                                                 motivoVale: '.',
+                                                                                imagemVale: '',
+                                                                                skuItem: '0',
+                                                                                qtdItemResgate: 0,
                                                                               ));
                                                                             } else {
                                                                               await showDialog(
                                                                                 context: context,
                                                                                 builder: (alertDialogContext) {
                                                                                   return AlertDialog(
-                                                                                    title: Text('Vale Pontos'),
+                                                                                    title: Text('Vale Presente'),
                                                                                     content: Text('O Resgate Falhou - Cod :${RPPontuarConsumidorCall.codigoResposta(
                                                                                       (_model.resultApiPontuar?.jsonBody ?? ''),
                                                                                     ).toString()}'),
@@ -3335,79 +3343,85 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                 AlignmentDirectional(-1.0, 0.0),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                 children: [
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                                                                    child: Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                      children: [
-                                                                                        Align(
-                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 20.0, 5.0),
-                                                                                            child: Row(
-                                                                                              mainAxisSize: MainAxisSize.min,
-                                                                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                              children: [
-                                                                                                Text(
-                                                                                                  'VALE PONTOS',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                                        color: Colors.white,
-                                                                                                        fontSize: 18.0,
-                                                                                                        fontWeight: FontWeight.bold,
-                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ],
+                                                                                  Expanded(
+                                                                                    child: Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                      child: Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                        children: [
+                                                                                          Align(
+                                                                                            alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                            child: Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 5.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.min,
+                                                                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    'VALE PRESENTE',
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                          color: Colors.white,
+                                                                                                          fontSize: 18.0,
+                                                                                                          fontWeight: FontWeight.bold,
+                                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
                                                                                             ),
                                                                                           ),
-                                                                                        ),
-                                                                                        Text(
-                                                                                          'CLICK NO CARTÃO \nP/RESGATAR SEUS PONTOS',
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Outfit',
-                                                                                                color: Colors.white,
-                                                                                                fontSize: 12.0,
-                                                                                                fontWeight: FontWeight.normal,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                              ),
-                                                                                        ),
-                                                                                        Align(
-                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 20.0, 0.0),
-                                                                                            child: Row(
-                                                                                              mainAxisSize: MainAxisSize.min,
-                                                                                              children: [
-                                                                                                Align(
-                                                                                                  alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                                  child: AuthUserStreamWidget(
-                                                                                                    builder: (context) => Text(
-                                                                                                      'Ref : ${valueOrDefault<String>(
-                                                                                                        valueOrDefault(currentUserDocument?.motivoVale, ''),
-                                                                                                        'Sem informação...',
-                                                                                                      )}',
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Outfit',
-                                                                                                            color: Colors.white,
-                                                                                                            fontSize: 14.0,
-                                                                                                            fontWeight: FontWeight.normal,
-                                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                                          ),
+                                                                                          AutoSizeText(
+                                                                                            'CLICK NO CARTÃO P/RESGATAR SEU PRESENTE',
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: 'Outfit',
+                                                                                                  color: Colors.white,
+                                                                                                  fontSize: 11.0,
+                                                                                                  fontWeight: FontWeight.normal,
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                                ),
+                                                                                          ),
+                                                                                          Align(
+                                                                                            alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                            child: Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.min,
+                                                                                                children: [
+                                                                                                  Flexible(
+                                                                                                    child: Align(
+                                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                                      child: AuthUserStreamWidget(
+                                                                                                        builder: (context) => AutoSizeText(
+                                                                                                          'Ref : ${valueOrDefault<String>(
+                                                                                                            valueOrDefault(currentUserDocument?.motivoVale, ''),
+                                                                                                            'Sem informação...',
+                                                                                                          )}'
+                                                                                                              .maybeHandleOverflow(maxChars: 50),
+                                                                                                          maxLines: 2,
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                fontFamily: 'Outfit',
+                                                                                                                color: Colors.white,
+                                                                                                                fontSize: 14.0,
+                                                                                                                fontWeight: FontWeight.normal,
+                                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                                              ),
+                                                                                                        ),
+                                                                                                      ),
                                                                                                     ),
                                                                                                   ),
-                                                                                                ),
-                                                                                              ],
+                                                                                                ],
+                                                                                              ),
                                                                                             ),
                                                                                           ),
-                                                                                        ),
-                                                                                      ],
+                                                                                        ],
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                   AuthUserStreamWidget(
@@ -3431,7 +3445,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 20.0,
-                                                                                2.0,
+                                                                                0.0,
                                                                                 20.0,
                                                                                 0.0),
                                                                             child:
@@ -3521,7 +3535,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                 20.0,
                                                                                 0.0,
                                                                                 20.0,
-                                                                                10.0),
+                                                                                2.0),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,

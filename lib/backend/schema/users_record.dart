@@ -61,46 +61,6 @@ class UsersRecord extends FirestoreRecord {
   String get documento => _documento ?? '';
   bool hasDocumento() => _documento != null;
 
-  // "proprietario" field.
-  bool? _proprietario;
-  bool get proprietario => _proprietario ?? false;
-  bool hasProprietario() => _proprietario != null;
-
-  // "operador" field.
-  bool? _operador;
-  bool get operador => _operador ?? false;
-  bool hasOperador() => _operador != null;
-
-  // "padrao" field.
-  bool? _padrao;
-  bool get padrao => _padrao ?? false;
-  bool hasPadrao() => _padrao != null;
-
-  // "representante" field.
-  bool? _representante;
-  bool get representante => _representante ?? false;
-  bool hasRepresentante() => _representante != null;
-
-  // "mecanico" field.
-  bool? _mecanico;
-  bool get mecanico => _mecanico ?? false;
-  bool hasMecanico() => _mecanico != null;
-
-  // "assinante" field.
-  bool? _assinante;
-  bool get assinante => _assinante ?? false;
-  bool hasAssinante() => _assinante != null;
-
-  // "indicacao" field.
-  bool? _indicacao;
-  bool get indicacao => _indicacao ?? false;
-  bool hasIndicacao() => _indicacao != null;
-
-  // "cashback" field.
-  bool? _cashback;
-  bool get cashback => _cashback ?? false;
-  bool hasCashback() => _cashback != null;
-
   // "codvalepontos" field.
   String? _codvalepontos;
   String get codvalepontos => _codvalepontos ?? '';
@@ -131,11 +91,6 @@ class UsersRecord extends FirestoreRecord {
   String get motivoVale => _motivoVale ?? '';
   bool hasMotivoVale() => _motivoVale != null;
 
-  // "funcionario" field.
-  bool? _funcionario;
-  bool get funcionario => _funcionario ?? false;
-  bool hasFuncionario() => _funcionario != null;
-
   // "SuperAdmin" field.
   bool? _superAdmin;
   bool get superAdmin => _superAdmin ?? false;
@@ -156,6 +111,126 @@ class UsersRecord extends FirestoreRecord {
   String get skuItem => _skuItem ?? '';
   bool hasSkuItem() => _skuItem != null;
 
+  // "dataCadastro" field.
+  String? _dataCadastro;
+  String get dataCadastro => _dataCadastro ?? '';
+  bool hasDataCadastro() => _dataCadastro != null;
+
+  // "dataMovimento" field.
+  String? _dataMovimento;
+  String get dataMovimento => _dataMovimento ?? '';
+  bool hasDataMovimento() => _dataMovimento != null;
+
+  // "saldRoot" field.
+  String? _saldRoot;
+  String get saldRoot => _saldRoot ?? '';
+  bool hasSaldRoot() => _saldRoot != null;
+
+  // "tipoUsuario" field.
+  String? _tipoUsuario;
+  String get tipoUsuario => _tipoUsuario ?? '';
+  bool hasTipoUsuario() => _tipoUsuario != null;
+
+  // "minhasCompras" field.
+  bool? _minhasCompras;
+  bool get minhasCompras => _minhasCompras ?? false;
+  bool hasMinhasCompras() => _minhasCompras != null;
+
+  // "minhasFaturas" field.
+  bool? _minhasFaturas;
+  bool get minhasFaturas => _minhasFaturas ?? false;
+  bool hasMinhasFaturas() => _minhasFaturas != null;
+
+  // "minhasMaquinas" field.
+  bool? _minhasMaquinas;
+  bool get minhasMaquinas => _minhasMaquinas ?? false;
+  bool hasMinhasMaquinas() => _minhasMaquinas != null;
+
+  // "meusOrcamentos" field.
+  bool? _meusOrcamentos;
+  bool get meusOrcamentos => _meusOrcamentos ?? false;
+  bool hasMeusOrcamentos() => _meusOrcamentos != null;
+
+  // "revisoesAgendadas" field.
+  bool? _revisoesAgendadas;
+  bool get revisoesAgendadas => _revisoesAgendadas ?? false;
+  bool hasRevisoesAgendadas() => _revisoesAgendadas != null;
+
+  // "enviarhorimetro" field.
+  bool? _enviarhorimetro;
+  bool get enviarhorimetro => _enviarhorimetro ?? false;
+  bool hasEnviarhorimetro() => _enviarhorimetro != null;
+
+  // "transferirRoots" field.
+  bool? _transferirRoots;
+  bool get transferirRoots => _transferirRoots ?? false;
+  bool hasTransferirRoots() => _transferirRoots != null;
+
+  // "indiqueGanhe" field.
+  bool? _indiqueGanhe;
+  bool get indiqueGanhe => _indiqueGanhe ?? false;
+  bool hasIndiqueGanhe() => _indiqueGanhe != null;
+
+  // "criarCampanhas" field.
+  bool? _criarCampanhas;
+  bool get criarCampanhas => _criarCampanhas ?? false;
+  bool hasCriarCampanhas() => _criarCampanhas != null;
+
+  // "deptoPecas" field.
+  bool? _deptoPecas;
+  bool get deptoPecas => _deptoPecas ?? false;
+  bool hasDeptoPecas() => _deptoPecas != null;
+
+  // "deptoServicos" field.
+  bool? _deptoServicos;
+  bool get deptoServicos => _deptoServicos ?? false;
+  bool hasDeptoServicos() => _deptoServicos != null;
+
+  // "deptoComercial" field.
+  bool? _deptoComercial;
+  bool get deptoComercial => _deptoComercial ?? false;
+  bool hasDeptoComercial() => _deptoComercial != null;
+
+  // "deptoAdministracao" field.
+  bool? _deptoAdministracao;
+  bool get deptoAdministracao => _deptoAdministracao ?? false;
+  bool hasDeptoAdministracao() => _deptoAdministracao != null;
+
+  // "diretor" field.
+  bool? _diretor;
+  bool get diretor => _diretor ?? false;
+  bool hasDiretor() => _diretor != null;
+
+  // "gerente" field.
+  bool? _gerente;
+  bool get gerente => _gerente ?? false;
+  bool hasGerente() => _gerente != null;
+
+  // "supervisor" field.
+  bool? _supervisor;
+  bool get supervisor => _supervisor ?? false;
+  bool hasSupervisor() => _supervisor != null;
+
+  // "comprador" field.
+  bool? _comprador;
+  bool get comprador => _comprador ?? false;
+  bool hasComprador() => _comprador != null;
+
+  // "vendedor" field.
+  bool? _vendedor;
+  bool get vendedor => _vendedor ?? false;
+  bool hasVendedor() => _vendedor != null;
+
+  // "administrativo" field.
+  bool? _administrativo;
+  bool get administrativo => _administrativo ?? false;
+  bool hasAdministrativo() => _administrativo != null;
+
+  // "treinamentos" field.
+  bool? _treinamentos;
+  bool get treinamentos => _treinamentos ?? false;
+  bool hasTreinamentos() => _treinamentos != null;
+
   void _initializeFields() {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
@@ -166,25 +241,40 @@ class UsersRecord extends FirestoreRecord {
     _dataNascimento = snapshotData['data_nascimento'] as String?;
     _email = snapshotData['email'] as String?;
     _documento = snapshotData['documento'] as String?;
-    _proprietario = snapshotData['proprietario'] as bool?;
-    _operador = snapshotData['operador'] as bool?;
-    _padrao = snapshotData['padrao'] as bool?;
-    _representante = snapshotData['representante'] as bool?;
-    _mecanico = snapshotData['mecanico'] as bool?;
-    _assinante = snapshotData['assinante'] as bool?;
-    _indicacao = snapshotData['indicacao'] as bool?;
-    _cashback = snapshotData['cashback'] as bool?;
     _codvalepontos = snapshotData['codvalepontos'] as String?;
     _pontosvale = castToType<double>(snapshotData['pontosvale']);
     _dtInclusaoVale = snapshotData['dtInclusaoVale'] as String?;
     _aceiteTermo = snapshotData['aceiteTermo'] as bool?;
     _valorVale = castToType<double>(snapshotData['valorVale']);
     _motivoVale = snapshotData['motivoVale'] as String?;
-    _funcionario = snapshotData['funcionario'] as bool?;
     _superAdmin = snapshotData['SuperAdmin'] as bool?;
     _imagemVale = snapshotData['imagem_vale'] as String?;
     _qtdItemResgate = castToType<int>(snapshotData['qtd_item_resgate']);
     _skuItem = snapshotData['sku_item'] as String?;
+    _dataCadastro = snapshotData['dataCadastro'] as String?;
+    _dataMovimento = snapshotData['dataMovimento'] as String?;
+    _saldRoot = snapshotData['saldRoot'] as String?;
+    _tipoUsuario = snapshotData['tipoUsuario'] as String?;
+    _minhasCompras = snapshotData['minhasCompras'] as bool?;
+    _minhasFaturas = snapshotData['minhasFaturas'] as bool?;
+    _minhasMaquinas = snapshotData['minhasMaquinas'] as bool?;
+    _meusOrcamentos = snapshotData['meusOrcamentos'] as bool?;
+    _revisoesAgendadas = snapshotData['revisoesAgendadas'] as bool?;
+    _enviarhorimetro = snapshotData['enviarhorimetro'] as bool?;
+    _transferirRoots = snapshotData['transferirRoots'] as bool?;
+    _indiqueGanhe = snapshotData['indiqueGanhe'] as bool?;
+    _criarCampanhas = snapshotData['criarCampanhas'] as bool?;
+    _deptoPecas = snapshotData['deptoPecas'] as bool?;
+    _deptoServicos = snapshotData['deptoServicos'] as bool?;
+    _deptoComercial = snapshotData['deptoComercial'] as bool?;
+    _deptoAdministracao = snapshotData['deptoAdministracao'] as bool?;
+    _diretor = snapshotData['diretor'] as bool?;
+    _gerente = snapshotData['gerente'] as bool?;
+    _supervisor = snapshotData['supervisor'] as bool?;
+    _comprador = snapshotData['comprador'] as bool?;
+    _vendedor = snapshotData['vendedor'] as bool?;
+    _administrativo = snapshotData['administrativo'] as bool?;
+    _treinamentos = snapshotData['treinamentos'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -230,25 +320,40 @@ Map<String, dynamic> createUsersRecordData({
   String? dataNascimento,
   String? email,
   String? documento,
-  bool? proprietario,
-  bool? operador,
-  bool? padrao,
-  bool? representante,
-  bool? mecanico,
-  bool? assinante,
-  bool? indicacao,
-  bool? cashback,
   String? codvalepontos,
   double? pontosvale,
   String? dtInclusaoVale,
   bool? aceiteTermo,
   double? valorVale,
   String? motivoVale,
-  bool? funcionario,
   bool? superAdmin,
   String? imagemVale,
   int? qtdItemResgate,
   String? skuItem,
+  String? dataCadastro,
+  String? dataMovimento,
+  String? saldRoot,
+  String? tipoUsuario,
+  bool? minhasCompras,
+  bool? minhasFaturas,
+  bool? minhasMaquinas,
+  bool? meusOrcamentos,
+  bool? revisoesAgendadas,
+  bool? enviarhorimetro,
+  bool? transferirRoots,
+  bool? indiqueGanhe,
+  bool? criarCampanhas,
+  bool? deptoPecas,
+  bool? deptoServicos,
+  bool? deptoComercial,
+  bool? deptoAdministracao,
+  bool? diretor,
+  bool? gerente,
+  bool? supervisor,
+  bool? comprador,
+  bool? vendedor,
+  bool? administrativo,
+  bool? treinamentos,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -261,25 +366,40 @@ Map<String, dynamic> createUsersRecordData({
       'data_nascimento': dataNascimento,
       'email': email,
       'documento': documento,
-      'proprietario': proprietario,
-      'operador': operador,
-      'padrao': padrao,
-      'representante': representante,
-      'mecanico': mecanico,
-      'assinante': assinante,
-      'indicacao': indicacao,
-      'cashback': cashback,
       'codvalepontos': codvalepontos,
       'pontosvale': pontosvale,
       'dtInclusaoVale': dtInclusaoVale,
       'aceiteTermo': aceiteTermo,
       'valorVale': valorVale,
       'motivoVale': motivoVale,
-      'funcionario': funcionario,
       'SuperAdmin': superAdmin,
       'imagem_vale': imagemVale,
       'qtd_item_resgate': qtdItemResgate,
       'sku_item': skuItem,
+      'dataCadastro': dataCadastro,
+      'dataMovimento': dataMovimento,
+      'saldRoot': saldRoot,
+      'tipoUsuario': tipoUsuario,
+      'minhasCompras': minhasCompras,
+      'minhasFaturas': minhasFaturas,
+      'minhasMaquinas': minhasMaquinas,
+      'meusOrcamentos': meusOrcamentos,
+      'revisoesAgendadas': revisoesAgendadas,
+      'enviarhorimetro': enviarhorimetro,
+      'transferirRoots': transferirRoots,
+      'indiqueGanhe': indiqueGanhe,
+      'criarCampanhas': criarCampanhas,
+      'deptoPecas': deptoPecas,
+      'deptoServicos': deptoServicos,
+      'deptoComercial': deptoComercial,
+      'deptoAdministracao': deptoAdministracao,
+      'diretor': diretor,
+      'gerente': gerente,
+      'supervisor': supervisor,
+      'comprador': comprador,
+      'vendedor': vendedor,
+      'administrativo': administrativo,
+      'treinamentos': treinamentos,
     }.withoutNulls,
   );
 
@@ -300,25 +420,40 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.dataNascimento == e2?.dataNascimento &&
         e1?.email == e2?.email &&
         e1?.documento == e2?.documento &&
-        e1?.proprietario == e2?.proprietario &&
-        e1?.operador == e2?.operador &&
-        e1?.padrao == e2?.padrao &&
-        e1?.representante == e2?.representante &&
-        e1?.mecanico == e2?.mecanico &&
-        e1?.assinante == e2?.assinante &&
-        e1?.indicacao == e2?.indicacao &&
-        e1?.cashback == e2?.cashback &&
         e1?.codvalepontos == e2?.codvalepontos &&
         e1?.pontosvale == e2?.pontosvale &&
         e1?.dtInclusaoVale == e2?.dtInclusaoVale &&
         e1?.aceiteTermo == e2?.aceiteTermo &&
         e1?.valorVale == e2?.valorVale &&
         e1?.motivoVale == e2?.motivoVale &&
-        e1?.funcionario == e2?.funcionario &&
         e1?.superAdmin == e2?.superAdmin &&
         e1?.imagemVale == e2?.imagemVale &&
         e1?.qtdItemResgate == e2?.qtdItemResgate &&
-        e1?.skuItem == e2?.skuItem;
+        e1?.skuItem == e2?.skuItem &&
+        e1?.dataCadastro == e2?.dataCadastro &&
+        e1?.dataMovimento == e2?.dataMovimento &&
+        e1?.saldRoot == e2?.saldRoot &&
+        e1?.tipoUsuario == e2?.tipoUsuario &&
+        e1?.minhasCompras == e2?.minhasCompras &&
+        e1?.minhasFaturas == e2?.minhasFaturas &&
+        e1?.minhasMaquinas == e2?.minhasMaquinas &&
+        e1?.meusOrcamentos == e2?.meusOrcamentos &&
+        e1?.revisoesAgendadas == e2?.revisoesAgendadas &&
+        e1?.enviarhorimetro == e2?.enviarhorimetro &&
+        e1?.transferirRoots == e2?.transferirRoots &&
+        e1?.indiqueGanhe == e2?.indiqueGanhe &&
+        e1?.criarCampanhas == e2?.criarCampanhas &&
+        e1?.deptoPecas == e2?.deptoPecas &&
+        e1?.deptoServicos == e2?.deptoServicos &&
+        e1?.deptoComercial == e2?.deptoComercial &&
+        e1?.deptoAdministracao == e2?.deptoAdministracao &&
+        e1?.diretor == e2?.diretor &&
+        e1?.gerente == e2?.gerente &&
+        e1?.supervisor == e2?.supervisor &&
+        e1?.comprador == e2?.comprador &&
+        e1?.vendedor == e2?.vendedor &&
+        e1?.administrativo == e2?.administrativo &&
+        e1?.treinamentos == e2?.treinamentos;
   }
 
   @override
@@ -332,25 +467,40 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.dataNascimento,
         e?.email,
         e?.documento,
-        e?.proprietario,
-        e?.operador,
-        e?.padrao,
-        e?.representante,
-        e?.mecanico,
-        e?.assinante,
-        e?.indicacao,
-        e?.cashback,
         e?.codvalepontos,
         e?.pontosvale,
         e?.dtInclusaoVale,
         e?.aceiteTermo,
         e?.valorVale,
         e?.motivoVale,
-        e?.funcionario,
         e?.superAdmin,
         e?.imagemVale,
         e?.qtdItemResgate,
-        e?.skuItem
+        e?.skuItem,
+        e?.dataCadastro,
+        e?.dataMovimento,
+        e?.saldRoot,
+        e?.tipoUsuario,
+        e?.minhasCompras,
+        e?.minhasFaturas,
+        e?.minhasMaquinas,
+        e?.meusOrcamentos,
+        e?.revisoesAgendadas,
+        e?.enviarhorimetro,
+        e?.transferirRoots,
+        e?.indiqueGanhe,
+        e?.criarCampanhas,
+        e?.deptoPecas,
+        e?.deptoServicos,
+        e?.deptoComercial,
+        e?.deptoAdministracao,
+        e?.diretor,
+        e?.gerente,
+        e?.supervisor,
+        e?.comprador,
+        e?.vendedor,
+        e?.administrativo,
+        e?.treinamentos
       ]);
 
   @override

@@ -54,11 +54,11 @@
 	<true/>
 
 	<key>NSCameraUsageDescription</key>
-    <string>Permitir acesso a camera</string>
+    <string>Permitir que o app tenha acesso a camera e realize capturas de imegens para foto do perfil ?</string>
 	<key>NSMicrophoneUsageDescription</key>
     <string>In order to record audio for video, this app requires permission to access the microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>Permitir acesso a galeria de imagens </string>
+    <string>Permitir que o app tenha acesso a galeria de imagens e realize upload de imegens para foto do perfil ?</string>
 	<key>PermissionGroupNotification</key>
     <string>Permitir receber notificações</string>
     <key>UIBackgroundModes</key>

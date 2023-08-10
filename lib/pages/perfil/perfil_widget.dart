@@ -965,6 +965,9 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                         dataNascimento: _model.dataNascController.text,
                         photoUrl: _model.uploadedFileUrl,
                         displayName: _model.textController1.text,
+                        saldRoot: FFAppState().saldoroot,
+                        dataCadastro: FFAppState().dataCadastro,
+                        dataMovimento: FFAppState().dataMovimento,
                       ));
                       await showDialog(
                         context: context,

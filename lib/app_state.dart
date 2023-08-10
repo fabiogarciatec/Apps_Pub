@@ -164,6 +164,17 @@ class FFAppState extends ChangeNotifier {
       _DocReference =
           await secureStorage.getString('ff_DocReference') ?? _DocReference;
     });
+    await _safeInitAsync(() async {
+      _saldoroot = await secureStorage.getString('ff_saldoroot') ?? _saldoroot;
+    });
+    await _safeInitAsync(() async {
+      _dataCadastro =
+          await secureStorage.getString('ff_dataCadastro') ?? _dataCadastro;
+    });
+    await _safeInitAsync(() async {
+      _dataMovimento =
+          await secureStorage.getString('ff_dataMovimento') ?? _dataMovimento;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -572,6 +583,39 @@ class FFAppState extends ChangeNotifier {
 
   void deleteDocReference() {
     secureStorage.delete(key: 'ff_DocReference');
+  }
+
+  String _saldoroot = '';
+  String get saldoroot => _saldoroot;
+  set saldoroot(String _value) {
+    _saldoroot = _value;
+    secureStorage.setString('ff_saldoroot', _value);
+  }
+
+  void deleteSaldoroot() {
+    secureStorage.delete(key: 'ff_saldoroot');
+  }
+
+  String _dataCadastro = '';
+  String get dataCadastro => _dataCadastro;
+  set dataCadastro(String _value) {
+    _dataCadastro = _value;
+    secureStorage.setString('ff_dataCadastro', _value);
+  }
+
+  void deleteDataCadastro() {
+    secureStorage.delete(key: 'ff_dataCadastro');
+  }
+
+  String _dataMovimento = '';
+  String get dataMovimento => _dataMovimento;
+  set dataMovimento(String _value) {
+    _dataMovimento = _value;
+    secureStorage.setString('ff_dataMovimento', _value);
+  }
+
+  void deleteDataMovimento() {
+    secureStorage.delete(key: 'ff_dataMovimento');
   }
 }
 

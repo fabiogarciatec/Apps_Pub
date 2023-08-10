@@ -334,6 +334,20 @@ class _LoginWidgetState extends State<LoginWidget> {
                                             ).toString(),
                                             '0000-00-00',
                                           );
+                                          FFAppState().dataCadastro =
+                                              RPConsultaClientesCall
+                                                  .datacadastro(
+                                            (_model.resultApiCliente
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString();
+                                          FFAppState().dataMovimento =
+                                              RPConsultaClientesCall
+                                                  .dataultimacompra(
+                                            (_model.resultApiCliente
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString();
                                         });
                                         if (FFAppState().dataNascimento ==
                                             'null') {
@@ -364,6 +378,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   ''),
                                               r'''$''',
                                             );
+                                            FFAppState().saldoroot =
+                                                RPConsultaPontosCall.clentSaldo(
+                                              (_model.resultApiPontos
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString();
                                           });
                                           _model.resultLista =
                                               await RPListaDeBrindesCall.call();

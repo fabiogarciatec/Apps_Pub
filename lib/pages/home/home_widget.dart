@@ -678,16 +678,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         cursor: MouseCursor.defer ??
                                             MouseCursor.defer,
                                         child: Visibility(
-                                          visible: (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.funcionario,
-                                                      false) ==
-                                                  true) ||
-                                              (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.superAdmin,
-                                                      false) ==
-                                                  true),
+                                          visible: valueOrDefault<bool>(
+                                                  currentUserDocument
+                                                      ?.transferirRoots,
+                                                  false) ==
+                                              true,
                                           child: AuthUserStreamWidget(
                                             builder: (context) => InkWell(
                                               splashColor: Colors.transparent,
@@ -819,16 +814,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         cursor: MouseCursor.defer ??
                                             MouseCursor.defer,
                                         child: Visibility(
-                                          visible: (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.indicacao,
-                                                      false) ==
-                                                  true) ||
-                                              (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.superAdmin,
-                                                      false) ==
-                                                  true),
+                                          visible: valueOrDefault<bool>(
+                                                  currentUserDocument
+                                                      ?.indiqueGanhe,
+                                                  false) ==
+                                              true,
                                           child: AuthUserStreamWidget(
                                             builder: (context) => InkWell(
                                               splashColor: Colors.transparent,
@@ -951,7 +941,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         child: Visibility(
                                           visible: valueOrDefault<bool>(
                                                   currentUserDocument
-                                                      ?.superAdmin,
+                                                      ?.criarCampanhas,
                                                   false) ==
                                               true,
                                           child: AuthUserStreamWidget(
@@ -1048,16 +1038,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         cursor: SystemMouseCursors.click ??
                                             MouseCursor.defer,
                                         child: Visibility(
-                                          visible: (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.superAdmin,
-                                                      false) ==
-                                                  true) ||
-                                              (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.proprietario,
-                                                      false) ==
-                                                  true),
+                                          visible: valueOrDefault<bool>(
+                                                  currentUserDocument
+                                                      ?.minhasCompras,
+                                                  false) ==
+                                              true,
                                           child: AuthUserStreamWidget(
                                             builder: (context) =>
                                                 AnimatedContainer(
@@ -1144,16 +1129,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         cursor: SystemMouseCursors.click ??
                                             MouseCursor.defer,
                                         child: Visibility(
-                                          visible: (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.superAdmin,
-                                                      false) ==
-                                                  true) ||
-                                              (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.proprietario,
-                                                      false) ==
-                                                  true),
+                                          visible: valueOrDefault<bool>(
+                                                  currentUserDocument
+                                                      ?.minhasFaturas,
+                                                  false) ==
+                                              true,
                                           child: AuthUserStreamWidget(
                                             builder: (context) =>
                                                 AnimatedContainer(
@@ -1240,16 +1220,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         cursor: SystemMouseCursors.click ??
                                             MouseCursor.defer,
                                         child: Visibility(
-                                          visible: (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.superAdmin,
-                                                      false) ==
-                                                  true) ||
-                                              (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.assinante,
-                                                      false) ==
-                                                  true),
+                                          visible: valueOrDefault<bool>(
+                                                  currentUserDocument
+                                                      ?.treinamentos,
+                                                  false) ==
+                                              true,
                                           child: AuthUserStreamWidget(
                                             builder: (context) =>
                                                 AnimatedContainer(
@@ -1334,21 +1309,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         cursor: SystemMouseCursors.click ??
                                             MouseCursor.defer,
                                         child: Visibility(
-                                          visible: (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.proprietario,
-                                                      false) ==
-                                                  true) ||
-                                              (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.operador,
-                                                      false) ==
-                                                  true) ||
-                                              (valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.superAdmin,
-                                                      false) ==
-                                                  true),
+                                          visible: valueOrDefault<bool>(
+                                                  currentUserDocument
+                                                      ?.treinamentos,
+                                                  false) ==
+                                              true,
                                           child: AuthUserStreamWidget(
                                             builder: (context) =>
                                                 AnimatedContainer(
@@ -3260,9 +3225,10 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                                 pontosvale: 0.0,
                                                                                 valorVale: 0.0,
                                                                                 motivoVale: '.',
-                                                                                imagemVale: '',
+                                                                                imagemVale: 'https://dellasjoias.com.br/wp-content/uploads/2020/08/vale-presente.png',
                                                                                 skuItem: '0',
                                                                                 qtdItemResgate: 0,
+                                                                                saldRoot: FFAppState().saldoroot,
                                                                               ));
                                                                             } else {
                                                                               await showDialog(

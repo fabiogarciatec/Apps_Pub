@@ -231,6 +231,11 @@ class UsersRecord extends FirestoreRecord {
   bool get treinamentos => _treinamentos ?? false;
   bool hasTreinamentos() => _treinamentos != null;
 
+  // "horimetros" field.
+  DocumentReference? _horimetros;
+  DocumentReference? get horimetros => _horimetros;
+  bool hasHorimetros() => _horimetros != null;
+
   void _initializeFields() {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
@@ -275,6 +280,7 @@ class UsersRecord extends FirestoreRecord {
     _vendedor = snapshotData['vendedor'] as bool?;
     _administrativo = snapshotData['administrativo'] as bool?;
     _treinamentos = snapshotData['treinamentos'] as bool?;
+    _horimetros = snapshotData['horimetros'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -354,6 +360,7 @@ Map<String, dynamic> createUsersRecordData({
   bool? vendedor,
   bool? administrativo,
   bool? treinamentos,
+  DocumentReference? horimetros,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -400,6 +407,7 @@ Map<String, dynamic> createUsersRecordData({
       'vendedor': vendedor,
       'administrativo': administrativo,
       'treinamentos': treinamentos,
+      'horimetros': horimetros,
     }.withoutNulls,
   );
 
@@ -453,7 +461,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.comprador == e2?.comprador &&
         e1?.vendedor == e2?.vendedor &&
         e1?.administrativo == e2?.administrativo &&
-        e1?.treinamentos == e2?.treinamentos;
+        e1?.treinamentos == e2?.treinamentos &&
+        e1?.horimetros == e2?.horimetros;
   }
 
   @override
@@ -500,7 +509,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.comprador,
         e?.vendedor,
         e?.administrativo,
-        e?.treinamentos
+        e?.treinamentos,
+        e?.horimetros
       ]);
 
   @override

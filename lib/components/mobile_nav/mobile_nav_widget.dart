@@ -232,7 +232,7 @@ class _MobileNavWidgetState extends State<MobileNavWidget> {
                 ),
               ),
             ),
-            if (valueOrDefault<bool>(currentUserDocument?.superAdmin, false) ==
+            if (valueOrDefault<bool>(currentUserDocument?.deptoPecas, false) ==
                 true)
               Expanded(
                 child: Padding(

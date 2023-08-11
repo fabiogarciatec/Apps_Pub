@@ -109,14 +109,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ExtratoWidget(),
         ),
         FFRoute(
-          name: 'teamMembersClients',
-          path: '/teamMembersClients',
-          builder: (context, params) => TeamMembersClientsWidget(),
+          name: 'pagina1',
+          path: '/pagina1',
+          builder: (context, params) => Pagina1Widget(),
         ),
         FFRoute(
-          name: 'projects_alt',
-          path: '/projectsAlt',
-          builder: (context, params) => ProjectsAltWidget(),
+          name: 'Horimetro',
+          path: '/horimetro',
+          builder: (context, params) => HorimetroWidget(),
         ),
         FFRoute(
           name: 'login',

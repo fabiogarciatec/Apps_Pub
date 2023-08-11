@@ -39,6 +39,11 @@ class HomeModel extends FlutterFlowModel {
   ApiCallResponse? resultApiBrindes;
   // Model for mainWebNav component.
   late MainWebNavModel mainWebNavModel;
+  // State field(s) for TabBar widget.
+  TabController? tabBarController;
+  int get tabBarCurrentIndex =>
+      tabBarController != null ? tabBarController!.index : 0;
+
   // Stores action output result for [Backend Call - API (RP Pontuar Consumidor)] action in Column widget.
   ApiCallResponse? resultApiPontuar;
   // Stores action output result for [Backend Call - API (RP Consulta Pontos)] action in Column widget.
@@ -82,6 +87,7 @@ class HomeModel extends FlutterFlowModel {
     unfocusNode.dispose();
     timerclients?.cancel();
     mainWebNavModel.dispose();
+    tabBarController?.dispose();
     mobileNavModel.dispose();
   }
 

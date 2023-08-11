@@ -3,9 +3,8 @@ export '/pages/home/home_widget.dart' show HomeWidget;
 export '/pages/produtos/produtos_widget.dart' show ProdutosWidget;
 export '/pages/brindes/brindes_widget.dart' show BrindesWidget;
 export '/pages/extrato/extrato_widget.dart' show ExtratoWidget;
-export '/pages/team_members_clients/team_members_clients_widget.dart'
-    show TeamMembersClientsWidget;
-export '/pages/projects_alt/projects_alt_widget.dart' show ProjectsAltWidget;
+export '/pages/pagina1/pagina1_widget.dart' show Pagina1Widget;
+export '/pages/horimetro/horimetro_widget.dart' show HorimetroWidget;
 export '/pages/login/login_widget.dart' show LoginWidget;
 export '/pages/brindes_item/brindes_item_widget.dart' show BrindesItemWidget;
 export '/pages/perfil/perfil_widget.dart' show PerfilWidget;

@@ -14,6 +14,10 @@ class ListaPecasModel extends FlutterFlowModel {
   // State field(s) for procurar widget.
   TextEditingController? procurarController;
   String? Function(BuildContext, String?)? procurarControllerValidator;
+  // State field(s) for TabBar widget.
+  TabController? tabBarController;
+  int get tabBarCurrentIndex =>
+      tabBarController != null ? tabBarController!.index : 0;
 
   /// Initialization and disposal methods.
 
@@ -22,6 +26,7 @@ class ListaPecasModel extends FlutterFlowModel {
   void dispose() {
     unfocusNode.dispose();
     procurarController?.dispose();
+    tabBarController?.dispose();
   }
 
   /// Action blocks are added here.

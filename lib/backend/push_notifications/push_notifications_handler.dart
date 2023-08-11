@@ -116,8 +116,8 @@ final parametersBuilderMap =
   'Produtos': ParameterData.none(),
   'Brindes': ParameterData.none(),
   'Extrato': ParameterData.none(),
-  'teamMembersClients': ParameterData.none(),
-  'projects_alt': ParameterData.none(),
+  'pagina1': ParameterData.none(),
+  'Horimetro': ParameterData.none(),
   'login': ParameterData.none(),
   'BrindesItem': (data) async => ParameterData(
         allParams: {

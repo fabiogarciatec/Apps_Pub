@@ -1,36 +1,32 @@
-import '/components/main_web_nav/main_web_nav_widget.dart';
-import '/components/message_bottom_sheet/message_bottom_sheet_widget.dart';
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
-class ProjectsAltModel extends FlutterFlowModel {
+class HorimetroModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for mainWebNav component.
-  late MainWebNavModel mainWebNavModel1;
-  // Model for mainWebNav component.
-  late MainWebNavModel mainWebNavModel2;
+  // State field(s) for TextField widget.
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {
-    mainWebNavModel1 = createModel(context, () => MainWebNavModel());
-    mainWebNavModel2 = createModel(context, () => MainWebNavModel());
-  }
+  void initState(BuildContext context) {}
 
   void dispose() {
     unfocusNode.dispose();
-    mainWebNavModel1.dispose();
-    mainWebNavModel2.dispose();
+    textController?.dispose();
   }
 
   /// Action blocks are added here.

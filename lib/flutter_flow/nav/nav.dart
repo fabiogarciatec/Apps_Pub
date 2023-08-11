@@ -109,14 +109,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ExtratoWidget(),
         ),
         FFRoute(
-          name: 'pagina1',
-          path: '/pagina1',
-          builder: (context, params) => Pagina1Widget(),
-        ),
-        FFRoute(
-          name: 'Horimetro',
-          path: '/horimetro',
-          builder: (context, params) => HorimetroWidget(),
+          name: 'Horimetros',
+          path: '/horimetros',
+          builder: (context, params) => HorimetrosWidget(),
         ),
         FFRoute(
           name: 'login',

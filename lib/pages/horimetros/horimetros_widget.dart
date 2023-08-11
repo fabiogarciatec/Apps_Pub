@@ -14,25 +14,25 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'pagina1_model.dart';
-export 'pagina1_model.dart';
+import 'horimetros_model.dart';
+export 'horimetros_model.dart';
 
-class Pagina1Widget extends StatefulWidget {
-  const Pagina1Widget({Key? key}) : super(key: key);
+class HorimetrosWidget extends StatefulWidget {
+  const HorimetrosWidget({Key? key}) : super(key: key);
 
   @override
-  _Pagina1WidgetState createState() => _Pagina1WidgetState();
+  _HorimetrosWidgetState createState() => _HorimetrosWidgetState();
 }
 
-class _Pagina1WidgetState extends State<Pagina1Widget> {
-  late Pagina1Model _model;
+class _HorimetrosWidgetState extends State<HorimetrosWidget> {
+  late HorimetrosModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Pagina1Model());
+    _model = createModel(context, () => HorimetrosModel());
 
     _model.textController ??= TextEditingController();
   }
@@ -139,56 +139,65 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                   ),
                   Expanded(
                     flex: 1,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 4.0, 0.0),
-                          child: Material(
-                            color: Colors.transparent,
-                            elevation: 1.0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                            child: Container(
-                              width: 50.0,
-                              height: 50.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 4.0,
-                                    color: Color(0x33000000),
-                                    offset: Offset(0.0, 2.0),
-                                  )
-                                ],
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('Perfil');
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 4.0, 0.0),
+                            child: Material(
+                              color: Colors.transparent,
+                              elevation: 1.0,
+                              shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16.0),
-                                border: Border.all(
-                                  color: Color(0xFFE76324),
-                                  width: 1.0,
-                                ),
                               ),
-                              child: AuthUserStreamWidget(
-                                builder: (context) => ClipRRect(
+                              child: Container(
+                                width: 50.0,
+                                height: 50.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: Color(0x33000000),
+                                      offset: Offset(0.0, 2.0),
+                                    )
+                                  ],
                                   borderRadius: BorderRadius.circular(16.0),
-                                  child: Image.network(
-                                    valueOrDefault<String>(
-                                      currentUserPhoto,
-                                      'https://firebasestorage.googleapis.com/v0/b/app-raizespremium.appspot.com/o/imagem%20em%20branco.png?alt=media&token=de7cbd4f-ed51-47cf-9d33-474a6d63dc0d',
+                                  border: Border.all(
+                                    color: Color(0xFFE76324),
+                                    width: 1.0,
+                                  ),
+                                ),
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => ClipRRect(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    child: Image.network(
+                                      valueOrDefault<String>(
+                                        currentUserPhoto,
+                                        'https://firebasestorage.googleapis.com/v0/b/app-raizespremium.appspot.com/o/imagem%20em%20branco.png?alt=media&token=de7cbd4f-ed51-47cf-9d33-474a6d63dc0d',
+                                      ),
+                                      width: 100.0,
+                                      height: 100.0,
+                                      fit: BoxFit.cover,
                                     ),
-                                    width: 100.0,
-                                    height: 100.0,
-                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -223,15 +232,25 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Envio de Horímetro',
+                                      'Envie o Horímetro - Ganhe 3 Roots ✨',
                                       style: FlutterFlowTheme.of(context)
-                                          .headlineMedium,
+                                          .headlineMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineMediumFamily,
+                                            fontSize: 18.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineMediumFamily),
+                                          ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 0.0),
+                                          0.0, 4.0, 0.0, 2.0),
                                       child: Text(
-                                        'Inclua abaixo fotos do horímetro e chassi da(s) máquina(s)',
+                                        'Inclua abaixo fotos do horímetro e números do chassi da(s) máquina(s) que você opera.',
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall,
                                       ),
@@ -265,19 +284,59 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 5.0, 10.0, 5.0),
+                                            10.0, 10.0, 10.0, 10.0),
                                         child: TextFormField(
                                           controller: _model.textController,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             labelText:
-                                                'PROPRIETÁRIO DA MAQUINAS',
+                                                'Nome do proprietário da(s) máquina(s)',
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      fontSize: 14.0,
+                                                      useGoogleFonts: GoogleFonts
+                                                              .asMap()
+                                                          .containsKey(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily),
+                                                    ),
                                             hintText:
                                                 'Digite aqui nome ou empresa...',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      fontSize: 14.0,
+                                                      useGoogleFonts: GoogleFonts
+                                                              .asMap()
+                                                          .containsKey(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily),
+                                                    ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0xFFE76324),
-                                                width: 2.0,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
@@ -287,7 +346,7 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
-                                                width: 2.0,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
@@ -297,7 +356,7 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .error,
-                                                width: 2.0,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
@@ -308,7 +367,7 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .error,
-                                                width: 2.0,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
@@ -320,6 +379,9 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
                                                 fontSize: 16.0,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
@@ -358,72 +420,77 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 1.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  child: Container(
-                                    width: 70.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 0.0, 0.0, 0.0),
+                                  child: Material(
+                                    color: Colors.transparent,
+                                    elevation: 1.0,
+                                    shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12.0),
-                                      border: Border.all(
-                                        color: Color(0xFFE76324),
-                                      ),
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 5.0, 5.0, 5.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          await Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType.fade,
-                                              child:
-                                                  FlutterFlowExpandedImageView(
-                                                image: Image.network(
-                                                  valueOrDefault<String>(
+                                    child: Container(
+                                      width: 70.0,
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        border: Border.all(
+                                          color: Color(0xFFE76324),
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5.0, 5.0, 5.0, 5.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await Navigator.push(
+                                              context,
+                                              PageTransition(
+                                                type: PageTransitionType.fade,
+                                                child:
+                                                    FlutterFlowExpandedImageView(
+                                                  image: Image.network(
+                                                    valueOrDefault<String>(
+                                                      _model.uploadedFileUrl1,
+                                                      'https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg',
+                                                    ),
+                                                    fit: BoxFit.contain,
+                                                  ),
+                                                  allowRotation: false,
+                                                  tag: valueOrDefault<String>(
                                                     _model.uploadedFileUrl1,
                                                     'https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg',
                                                   ),
-                                                  fit: BoxFit.contain,
+                                                  useHeroAnimation: true,
                                                 ),
-                                                allowRotation: false,
-                                                tag: valueOrDefault<String>(
+                                              ),
+                                            );
+                                          },
+                                          child: Hero(
+                                            tag: valueOrDefault<String>(
+                                              _model.uploadedFileUrl1,
+                                              'https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg',
+                                            ),
+                                            transitionOnUserGestures: true,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.network(
+                                                valueOrDefault<String>(
                                                   _model.uploadedFileUrl1,
                                                   'https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg',
                                                 ),
-                                                useHeroAnimation: true,
+                                                width: 600.0,
+                                                height: 500.0,
+                                                fit: BoxFit.cover,
                                               ),
-                                            ),
-                                          );
-                                        },
-                                        child: Hero(
-                                          tag: valueOrDefault<String>(
-                                            _model.uploadedFileUrl1,
-                                            'https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg',
-                                          ),
-                                          transitionOnUserGestures: true,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              valueOrDefault<String>(
-                                                _model.uploadedFileUrl1,
-                                                'https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg',
-                                              ),
-                                              width: 600.0,
-                                              height: 500.0,
-                                              fit: BoxFit.cover,
                                             ),
                                           ),
                                         ),
@@ -453,7 +520,7 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 2.0, 0.0, 0.0),
                                           child: Text(
-                                            'Inclua a foto aguarde uns segundos até que apareça.',
+                                            'Inclua a foto e aguarde uns segundos até que apareça.',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall,
                                           ),
@@ -464,7 +531,7 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 5.0, 0.0),
+                                      0.0, 2.0, 5.0, 2.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -614,72 +681,77 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 1.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  child: Container(
-                                    width: 70.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 0.0, 0.0, 0.0),
+                                  child: Material(
+                                    color: Colors.transparent,
+                                    elevation: 1.0,
+                                    shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12.0),
-                                      border: Border.all(
-                                        color: Color(0xFFE76324),
-                                      ),
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 5.0, 5.0, 5.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          await Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType.fade,
-                                              child:
-                                                  FlutterFlowExpandedImageView(
-                                                image: Image.network(
-                                                  valueOrDefault<String>(
+                                    child: Container(
+                                      width: 70.0,
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        border: Border.all(
+                                          color: Color(0xFFE76324),
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5.0, 5.0, 5.0, 5.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await Navigator.push(
+                                              context,
+                                              PageTransition(
+                                                type: PageTransitionType.fade,
+                                                child:
+                                                    FlutterFlowExpandedImageView(
+                                                  image: Image.network(
+                                                    valueOrDefault<String>(
+                                                      _model.uploadedFileUrl2,
+                                                      'https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg',
+                                                    ),
+                                                    fit: BoxFit.contain,
+                                                  ),
+                                                  allowRotation: false,
+                                                  tag: valueOrDefault<String>(
                                                     _model.uploadedFileUrl2,
                                                     'https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg',
                                                   ),
-                                                  fit: BoxFit.contain,
+                                                  useHeroAnimation: true,
                                                 ),
-                                                allowRotation: false,
-                                                tag: valueOrDefault<String>(
+                                              ),
+                                            );
+                                          },
+                                          child: Hero(
+                                            tag: valueOrDefault<String>(
+                                              _model.uploadedFileUrl2,
+                                              'https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg',
+                                            ),
+                                            transitionOnUserGestures: true,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.network(
+                                                valueOrDefault<String>(
                                                   _model.uploadedFileUrl2,
                                                   'https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg',
                                                 ),
-                                                useHeroAnimation: true,
+                                                width: 600.0,
+                                                height: 500.0,
+                                                fit: BoxFit.cover,
                                               ),
-                                            ),
-                                          );
-                                        },
-                                        child: Hero(
-                                          tag: valueOrDefault<String>(
-                                            _model.uploadedFileUrl2,
-                                            'https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg',
-                                          ),
-                                          transitionOnUserGestures: true,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              valueOrDefault<String>(
-                                                _model.uploadedFileUrl2,
-                                                'https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg',
-                                              ),
-                                              width: 600.0,
-                                              height: 500.0,
-                                              fit: BoxFit.cover,
                                             ),
                                           ),
                                         ),
@@ -709,7 +781,7 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 2.0, 0.0, 0.0),
                                           child: Text(
-                                            'Inclua a foto aguarde uns segundos até que apareça.',
+                                            'Inclua a foto e aguarde uns segundos até que apareça.',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall,
                                           ),
@@ -720,7 +792,7 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 6.0, 0.0),
+                                      0.0, 2.0, 6.0, 2.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -934,28 +1006,30 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 12.0, 0.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Fotos Incluidas',
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineMedium,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 4.0, 0.0, 8.0),
-                                    child: Text(
-                                      'Abaixo suas fotos incluídas para envio:',
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 12.0, 0.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Fotos Incluídas',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .headlineMedium,
                                     ),
-                                  ),
-                                ],
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 4.0, 0.0, 8.0),
+                                      child: Text(
+                                        'Abaixo suas fotos enviadas. Caso necessite, use a lixeira abaixo para exclusão.',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -1148,7 +1222,7 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                                                       width:
                                                                           600.0,
                                                                       height:
-                                                                          500.0,
+                                                                          400.0,
                                                                       fit: BoxFit
                                                                           .cover,
                                                                     ),
@@ -1178,7 +1252,7 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                                                         .start,
                                                                 children: [
                                                                   Text(
-                                                                    'Horímetro',
+                                                                    'Foto do Horímetro',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .titleLarge
@@ -1432,7 +1506,7 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                                                       width:
                                                                           600.0,
                                                                       height:
-                                                                          500.0,
+                                                                          400.0,
                                                                       fit: BoxFit
                                                                           .cover,
                                                                     ),
@@ -1462,7 +1536,7 @@ class _Pagina1WidgetState extends State<Pagina1Widget> {
                                                                         .start,
                                                                 children: [
                                                                   Text(
-                                                                    'Nun.Chassi',
+                                                                    'Foto do Nun.Chassi',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .titleLarge

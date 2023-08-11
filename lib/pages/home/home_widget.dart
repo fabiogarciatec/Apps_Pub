@@ -1327,7 +1327,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed('pagina1');
+                                                context.pushNamed('Horimetros');
                                               },
                                               child: AnimatedContainer(
                                                 duration:
@@ -2473,12 +2473,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               child: FaIcon(
                                                                 FontAwesomeIcons
                                                                     .gift,
-                                                                size: 15.0,
+                                                                size: 14.0,
                                                               ),
                                                             ),
                                                             Tab(
                                                               text:
-                                                                  'Vl. Pontos',
+                                                                  'Vl.Presente',
                                                             ),
                                                           ],
                                                         ),
